@@ -50,6 +50,14 @@
                 <input type="radio" name="estrella" value="1" id="star1"><label for="star1">★</label>
             </div>
         </div>
+
+         <hr>
+
+        <!-- Campo para escribir comentario -->
+        <div class="mb-3">
+            <label for="comentario" class="form-label">Escribe un comentario sobre esta persona:</label>
+            <textarea class="form-control" id="comentario" rows="4" placeholder="Escribe tu comentario aquí..."></textarea>
+        </div>
         <button type="submit" class="btn btn-success">Guardar Calificación</button>
     </form>
 </div>

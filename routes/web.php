@@ -30,3 +30,12 @@ Route::get('/profesionales/{id}', function ($id) {
 
 //PRINCIPAL
 Route::view('/iniciar-sesion', 'Home.FormLogin')->name('iniciarSesion');
+Route::view('/registro', 'Home.FormRegister')->name('registro');
+Route::view('/rol', 'Home.SelectRol')->name('rol');
+
+Route::view('/formulario-p', 'Home.FormProfessional')->name('formPro');
+Route::view('/formulario-e', 'Home.FormBussines')->name('formBuss');
+
+Route::view('/notifications', 'Main.ViewNotification')->name('view.notifications');
+
+Route::view('/buscarTarea', 'Profesional.SearchTask')->name('task');

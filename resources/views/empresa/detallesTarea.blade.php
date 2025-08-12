@@ -45,6 +45,9 @@
                             <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modalSugerencia1">
                                 <i class="fa-solid fa-eye"></i> Ver sugerencia
                             </button>
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalPerfilJuan">
+                                <i class="fa-solid fa-user"></i> Ver perfil
+                            </button>
                             <button class="btn btn-success btn-sm" onclick="autorizar('Juan Pérez')">
                                 <i class="fa-solid fa-check"></i> Autorizar
                             </button>
@@ -58,6 +61,9 @@
                         <td>
                             <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modalSugerencia2">
                                 <i class="fa-solid fa-eye"></i> Ver sugerencia
+                            </button>
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalPerfilMaria">
+                                <i class="fa-solid fa-user"></i> Ver perfil
                             </button>
                             <button class="btn btn-success btn-sm" onclick="autorizar('María Gómez')">
                                 <i class="fa-solid fa-check"></i> Autorizar
@@ -106,6 +112,42 @@
   </div>
 </div>
 
+<!-- Modal Perfil Juan -->
+<div class="modal fade" id="modalPerfilJuan" tabindex="-1" aria-labelledby="modalPerfilJuanLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="modalPerfilJuanLabel">Perfil de Juan Pérez</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Profesión:</strong> Desarrollador Full Stack</p>
+        <p><strong>Experiencia:</strong> 2 años en desarrollo web con Laravel, Vue.js y MySQL</p>
+        <p><strong>Portafolio:</strong> <a href="#" target="_blank">Ver portafolio</a></p>
+        <p><strong>Descripción:</strong> Apasionado por crear soluciones digitales escalables y eficientes, con un enfoque en la experiencia de usuario.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Perfil María -->
+<div class="modal fade" id="modalPerfilMaria" tabindex="-1" aria-labelledby="modalPerfilMariaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="modalPerfilMariaLabel">Perfil de María Gómez</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Profesión:</strong> Diseñadora UX/UI</p>
+        <p><strong>Experiencia:</strong> 6 años en diseño de interfaces y experiencia de usuario</p>
+        <p><strong>Portafolio:</strong> <a href="#" target="_blank">Ver portafolio</a></p>
+        <p><strong>Descripción:</strong> Creativa y meticulosa, enfocada en optimizar la interacción entre usuario y producto digital.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 @push('scripts')
 <script>
     $(document).ready(function() {
@@ -114,7 +156,6 @@
 
     function autorizar(nombre) {
         alert('Has autorizado a ' + nombre + ' para trabajar en esta tarea.');
-        // Aquí puedes hacer un fetch/axios POST a Laravel para guardar el cambio
     }
 </script>
 @endpush

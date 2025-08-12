@@ -7,7 +7,116 @@
     <title>Business Task</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
+    <style>     
+    
+        .notification {
+            margin:20px 30px;
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 15px;
+            align-items: flex-start;
+            background-color: #f9f9f9;
+        }
+        .notification img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            background-color: #ddd;
+        }
+        .notification-content {
+            flex: 1;
+        }
+        .notification-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .notification-header h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .notification-header small {
+            color: gray;
+            font-size: 12px;
+        }
+        .notification p {
+            margin: 0;
+            font-size: 14px;
+            color: #333;
+        }
+        .error-text {
+            color: red;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .container-searchTask {
+            display: grid;
+            grid-template-columns: 1fr 1fr 2fr;
+            gap: 10px;
+            padding: 10px;
+        }
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            background: #fff;
+        }
+        .header {
+            background: #d4f5d4;
+            padding: 5px;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .filtros input[type="text"], .filtros button {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+        }
+        .filtros label {
+            display: block;
+            margin: 5px 0;
+        }
+        .tarea-item {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 5px 0;
+        }
+        .img-cuadro {
+            width: 50px;
+            height: 50px;
+            background: brown;
+        }
+        .detalles .img-grande {
+            width: 70px;
+            height: 70px;
+            background: brown;
+        }
+        .detalles h4, .detalles p {
+            margin: 5px 0;
+        }
+        .detalles ul {
+            margin: 10px 0;
+        }
+        .archivo {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: #eee;
+            margin: 5px;
+        }
+
+
+
+
         body {
             display: flex;
         }
