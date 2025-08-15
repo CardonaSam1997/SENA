@@ -27,7 +27,7 @@ Route::view('/detalles', 'empresa.detallesTarea')->name('tareas.detalles');
 Route::view('/calificar', 'empresa.calificacion')->name('tareas.calificacion');
 
 Route::get('/profesionales', function () {
-    return view('profesionales');
+    return view('Profesional.ViewDetails');
 })->name('profesionales.index');
 
 Route::get('/profesionales/{id}', function ($id) {    

@@ -1,4 +1,3 @@
-<!-- resources/views/general.blade.php -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,22 +12,18 @@
     @yield('styles')
 </head>
 <body class="d-flex flex-column">    
-    <!-- Header -->
     <header class="bg-white border-bottom shadow-sm p-3">
-        <div class="container-fluid d-flex align-items-center justify-content-between">
-            <!-- Logo alineado a la izquierda -->
+        <div class="container-fluid d-flex align-items-center justify-content-between">            
             <div>
                 <a href="{{ route('pageMain') }}">
                     <img src="{{ asset('images/logo.png') }}" alt="Logo" class="img-fluid" style="max-width: 150px;">
                 </a>
-            </div>
-            <!-- Espacio para otros elementos a la derecha si los necesitas -->
+            </div>            
             <div class="position-relative">
                 @yield('adicion')
             </div>
         </div>
-    </header>    
-    <!-- Main -->
+    </header>        
     <main class="p-4 flex-grow-1">
         @yield('content')
     </main>

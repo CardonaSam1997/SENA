@@ -19,10 +19,7 @@
         </a>
         <a href="{{ route('tareas.ver') }}" class="d-flex align-items-center text-warning text-decoration-none py-2">
             <i class="fas fa-tasks me-2"></i> <span>Ver tareas</span>
-        </a>
-        <a href="{{ route('tareas.detalles') }}" class="d-flex align-items-center text-warning text-decoration-none py-2">
-            <i class="fas fa-envelope-open-text me-2"></i> <span>Revisar solicitudes</span>
-        </a>
+        </a>       
         <a href="{{ route('profesionales.show', ['id' => 3]) }}" class="d-flex align-items-center text-warning text-decoration-none py-2">
             <i class="fas fa-star me-2"></i> <span>Calificaciones</span>
         </a>

@@ -1,10 +1,9 @@
-@extends('general')
+@extends('HomeMain')
 
 @section('content')
 <div class="container">
     <h2 class="mb-4">Detalles de la tarea</h2>
 
-    <!-- Información de la tarea -->
     <div class="card mb-4">
         <div class="card-header bg-primary text-white">
             Información de la tarea
@@ -18,8 +17,7 @@
             <p><strong>Archivo adjunto:</strong> <a href="#">Requisitos.pdf</a></p>
         </div>
     </div>
-
-    <!-- Postulaciones -->
+    
     <div class="card">
         <div class="card-header bg-secondary text-white">
             Profesionales postulados
@@ -76,7 +74,6 @@
     </div>
 </div>
 
-<!-- Modal Sugerencia Juan -->
 <div class="modal fade" id="modalSugerencia1" tabindex="-1" aria-labelledby="modalSugerencia1Label" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -94,7 +91,6 @@
   </div>
 </div>
 
-<!-- Modal Sugerencia María -->
 <div class="modal fade" id="modalSugerencia2" tabindex="-1" aria-labelledby="modalSugerencia2Label" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -112,7 +108,6 @@
   </div>
 </div>
 
-<!-- Modal Perfil Juan -->
 <div class="modal fade" id="modalPerfilJuan" tabindex="-1" aria-labelledby="modalPerfilJuanLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -123,14 +118,13 @@
       <div class="modal-body">
         <p><strong>Profesión:</strong> Desarrollador Full Stack</p>
         <p><strong>Experiencia:</strong> 2 años en desarrollo web con Laravel, Vue.js y MySQL</p>
-        <p><strong>Portafolio:</strong> <a href="#" target="_blank">Ver portafolio</a></p>
+        <p><strong>Portafolio:</strong> <a href="{{route('profesionales.index', 1)}}" target="_blank">Ver portafolio</a></p>
         <p><strong>Descripción:</strong> Apasionado por crear soluciones digitales escalables y eficientes, con un enfoque en la experiencia de usuario.</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Modal Perfil María -->
 <div class="modal fade" id="modalPerfilMaria" tabindex="-1" aria-labelledby="modalPerfilMariaLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -148,7 +142,7 @@
   </div>
 </div>
 
-@push('scripts')
+
 <script>
     $(document).ready(function() {
         $('#tablaPostulaciones').DataTable();
@@ -158,5 +152,6 @@
         alert('Has autorizado a ' + nombre + ' para trabajar en esta tarea.');
     }
 </script>
-@endpush
+<!-- Bootstrap JS con Popper incluido -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 @endsection

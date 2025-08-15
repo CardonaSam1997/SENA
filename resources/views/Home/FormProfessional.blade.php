@@ -1,8 +1,7 @@
 @extends('PageMain')
 
 
-@section('styles')    
-    
+@section('styles')        
     <link rel="stylesheet" href="{{ asset('css/FormProfessional.css') }}">
 @endsection
 
@@ -10,7 +9,7 @@
 <div class="form-container">
     <h2>Registro Profesional</h2>
     <form method="POST" action="" enctype="multipart/form-data">
-        <!-- Fila 1 -->
+        @csrf
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label for="cedula" class="form-label">Cédula</label>
@@ -21,8 +20,7 @@
                 <input type="text" class="form-control" id="nombre" name="nombre" required>
             </div>
         </div>
-
-        <!-- Fila 2 -->
+        
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label for="direccion" class="form-label">Dirección</label>
@@ -34,7 +32,6 @@
             </div>
         </div>
 
-        <!-- Fila 3 -->
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label for="especializacion" class="form-label">Especialización</label>
@@ -52,21 +49,21 @@
                 <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required>
             </div>
         </div>
-
-        <!-- Descripción -->
+        
         <div class="mb-3">
             <label for="descripcion" class="form-label">Descripción</label>
             <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Cuéntanos sobre tu experiencia..." required></textarea>
         </div>
 
-        <!-- Hoja de vida -->
         <div class="mb-3">
             <label for="hoja_vida" class="form-label">Subir hoja de vida</label>
             <input type="file" class="form-control" id="hoja_vida" name="hoja_vida" accept=".pdf,.doc,.docx" required>
         </div>
 
-        <!-- Botón -->
-        <button type="submit" class="btn-submit">Registrarme</button>
+        <!-- <button type="submit" class="btn-submit">Registrarme</button> -->
+        <a href="{{ route('rol') }}"  class="btn-register d-block text-center " >Registrarme</a>
+
+
     </form>
 </div>
 @endsection

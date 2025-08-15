@@ -1,5 +1,4 @@
-@extends('general')
-
+@extends('HomeMain')
 @section('content')
 <div class="container mt-4">
     <h2>Profesionales con tareas finalizadas</h2>

@@ -31,26 +31,7 @@
         border-color: #F7B919;
         box-shadow: 0 0 8px #F7B919;
         outline: none;
-    }
-   .btn-register {
-    display: block; /* Ocupa toda la línea */
-    text-align: center; /* Centra el texto */
-    background-color: #F7B919;
-    color: #324E66;
-    font-weight: 700;
-    border-radius: 10px;
-    border: none;
-    width: 100%;
-    padding: 12px;
-    font-size: 1.1rem;
-    transition: background-color 0.3s ease;
-    text-decoration: none; /* Quita subrayado si es <a> */
-}
-
-    .btn-register:hover {
-        background-color: #e1a50a;
-        color: #000000;
-    }
+    }    
     .login-link {
         text-align: center;
         margin-top: 18px;
