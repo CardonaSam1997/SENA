@@ -3,8 +3,24 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::view('/', 'Home.PageMain')->name('pageMain');
-//PROFESIONAL
+Route::view('/', 'Home.Main')->name('pageMain');
+
+//PRINCIPAL
+Route::view('/iniciar-sesion', 'Home.FormLogin')->name('iniciarSesion');
+Route::view('/registro', 'Home.FormRegister')->name('registro');
+Route::view('/rol', 'Home.FormRol')->name('rol');
+
+Route::view('/formulario-p', 'Home.FormProfessional')->name('formPro');
+Route::view('/formulario-e', 'Home.FormBussines')->name('formBuss');
+
+
+
+
+Route::view('/notifications', 'Main.ViewNotification')->name('view.notifications');
+Route::view('/buscarTarea', 'Profesional.SearchTask')->name('task');
+
+
+//EMPRESA
 Route::view('/crear', 'empresa.crearTarea')->name('tareas.create');
 Route::view('/ver', 'empresa.verTarea')->name('tareas.ver');
 Route::view('/detalles', 'empresa.detallesTarea')->name('tareas.detalles');
@@ -27,15 +43,3 @@ Route::get('/profesionales/{id}', function ($id) {
     return view('empresa.PerfilProfesional', compact('profesional', 'yaCalificado'));
 })->name('profesionales.show');
 
-
-//PRINCIPAL
-Route::view('/iniciar-sesion', 'Home.FormLogin')->name('iniciarSesion');
-Route::view('/registro', 'Home.FormRegister')->name('registro');
-Route::view('/rol', 'Home.SelectRol')->name('rol');
-
-Route::view('/formulario-p', 'Home.FormProfessional')->name('formPro');
-Route::view('/formulario-e', 'Home.FormBussines')->name('formBuss');
-
-Route::view('/notifications', 'Main.ViewNotification')->name('view.notifications');
-
-Route::view('/buscarTarea', 'Profesional.SearchTask')->name('task');

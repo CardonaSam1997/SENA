@@ -1,59 +1,12 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro Profesional</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
-        }
-        .form-container {
-            max-width: 700px;
-            margin: 50px auto;
-            background: #324E66;
-            padding: 30px;
-            border-radius: 12px;
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        .form-container h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            color: #F7B919;
-            font-weight: 700;
-        }
-        .form-label {
-            font-weight: 600;
-        }
-        .form-control, .form-select {
-            border-radius: 8px;
-            border: 1.5px solid #F7B919;
-        }
-        .form-control:focus, .form-select:focus {
-            border-color: #F7B919;
-            box-shadow: 0 0 8px #F7B919;
-        }
-        .btn-submit {
-            background-color: #F7B919;
-            color: #324E66;
-            font-weight: 700;
-            border-radius: 10px;
-            padding: 10px;
-            width: 100%;
-            border: none;
-            transition: background-color 0.3s ease;
-        }
-        .btn-submit:hover {
-            background-color: #e1a50a;
-            color: #000;
-        }
-    </style>
-</head>
-<body>
+@extends('PageMain')
 
+
+@section('styles')    
+    
+    <link rel="stylesheet" href="{{ asset('css/FormProfessional.css') }}">
+@endsection
+
+@section('content')
 <div class="form-container">
     <h2>Registro Profesional</h2>
     <form method="POST" action="" enctype="multipart/form-data">
@@ -84,9 +37,9 @@
         <!-- Fila 3 -->
         <div class="row">
             <div class="col-md-6 mb-3">
-                <label for="area" class="form-label">Área</label>
-                <select class="form-select" id="area" name="area" required>
-                    <option value="">Seleccione un área</option>
+                <label for="especializacion" class="form-label">Especialización</label>
+                <select class="form-select" id="especializacion" name="especializacion" required>
+                    <option value="">Seleccione su especialización</option>
                     <option value="software">Desarrollo de Software</option>
                     <option value="redes">Redes y Telecomunicaciones</option>
                     <option value="soporte">Soporte Técnico</option>
@@ -116,6 +69,4 @@
         <button type="submit" class="btn-submit">Registrarme</button>
     </form>
 </div>
-
-</body>
-</html>
+@endsection
