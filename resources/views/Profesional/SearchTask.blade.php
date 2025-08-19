@@ -1,9 +1,8 @@
-@extends('general')
+@extends('HomeMain')
 
 @section('content')
 <div class="container-searchTask">
-
-    <!-- Filtros -->
+    
     <div class="card filtros">
         <div class="header">Filtros tareas</div>
         <label>Área:</label>
@@ -14,8 +13,7 @@
         <label><input type="radio" name="fecha"> Último mes</label>
         <button>Buscar</button>
     </div>
-
-    <!-- Tareas disponibles -->
+    
     <div class="card">
         <div class="header">Tareas disponibles</div>
 
@@ -100,8 +98,7 @@
             </div>
         </div>
     </div>
-
-    <!-- Detalles -->
+    
     <div class="card detalles">
         <div class="header">Detalles</div>
         <p style="text-align: right;">02/06/2024</p>

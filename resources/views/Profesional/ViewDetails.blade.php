@@ -43,37 +43,41 @@
                 <hr>
 
                 <div class="row">
+                    
                     <div class="card shadow-sm p-3">
-                        <h5 class="mb-3">Comentarios de empresas</h5>
-                        
-                        <div class="comment-card">
-                            <strong>Empresa: Tech Solutions S.A.S</strong>
-                            <p>Excelente profesional, entregó todo antes de la fecha límite.</p>
+                        <div class="card-head">
+                            <h5 class="mb-3">Comentarios de empresas</h5>
                         </div>
-                        
-                        <div class="comment-card">
-                            <strong>Empresa: InnovarTech</strong>
-                            <p>Muy comprometido y con gran capacidad para resolver problemas complejos.</p>
-                        </div>
-                        
-                        <div class="comment-card">
-                            <strong>Empresa: Software Creativo</strong>
-                            <p>Buena comunicación y calidad de trabajo.</p>
-                        </div>
-                        
-                        <div class="comment-card">
-                            <strong>Empresa: Tech Solutions S.A.S</strong>
-                            <p>Excelente profesional, entregó todo antes de la fecha límite.</p>
-                        </div>
-                        
-                        <div class="comment-card">
-                            <strong>Empresa: InnovarTech</strong>
-                            <p>Muy comprometido y con gran capacidad para resolver problemas complejos.</p>
-                        </div>
-                        
-                        <div class="comment-card">
-                            <strong>Empresa: Software Creativo</strong>
-                            <p>Buena comunicación y calidad de trabajo.</p>
+                        <div class="card-body">
+                            <div class="comment-card">
+                                <strong>Empresa: Tech Solutions S.A.S</strong>
+                                <p>Excelente profesional, entregó todo antes de la fecha límite.</p>
+                            </div>
+                            
+                            <div class="comment-card">
+                                <strong>Empresa: InnovarTech</strong>
+                                <p>Muy comprometido y con gran capacidad para resolver problemas complejos.</p>
+                            </div>
+                            
+                            <div class="comment-card">
+                                <strong>Empresa: Software Creativo</strong>
+                                <p>Buena comunicación y calidad de trabajo.</p>
+                            </div>
+                            
+                            <div class="comment-card">
+                                <strong>Empresa: Tech Solutions S.A.S</strong>
+                                <p>Excelente profesional, entregó todo antes de la fecha límite.</p>
+                            </div>
+                            
+                            <div class="comment-card">
+                                <strong>Empresa: InnovarTech</strong>
+                                <p>Muy comprometido y con gran capacidad para resolver problemas complejos.</p>
+                            </div>
+                            
+                            <div class="comment-card">
+                                <strong>Empresa: Software Creativo</strong>
+                                <p>Buena comunicación y calidad de trabajo.</p>
+                            </div>
                         </div>
                     </div>
                 </div>

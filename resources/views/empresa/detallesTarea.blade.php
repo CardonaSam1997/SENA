@@ -135,7 +135,7 @@
       <div class="modal-body">
         <p><strong>Profesión:</strong> Diseñadora UX/UI</p>
         <p><strong>Experiencia:</strong> 6 años en diseño de interfaces y experiencia de usuario</p>
-        <p><strong>Portafolio:</strong> <a href="#" target="_blank">Ver portafolio</a></p>
+        <p><strong>Portafolio:</strong> <a href="{{route('profesionales.index', 1)}}" target="_blank">Ver portafolio</a></p>
         <p><strong>Descripción:</strong> Creativa y meticulosa, enfocada en optimizar la interacción entre usuario y producto digital.</p>
       </div>
     </div>
@@ -152,6 +152,5 @@
         alert('Has autorizado a ' + nombre + ' para trabajar en esta tarea.');
     }
 </script>
-<!-- Bootstrap JS con Popper incluido -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 @endsection

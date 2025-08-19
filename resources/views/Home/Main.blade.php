@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Task Landing</title>
+    <title>Business Task Main</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-white text-dark">
 
-<!-- Header -->
 <header class="d-flex justify-content-between align-items-center py-3 px-4">
     <div class="d-flex align-items-center gap-2">
         <img src="{{asset('images/logo.png')}}" alt="Business Task Logo" height="60">
@@ -17,7 +16,6 @@
     <a href="{{ route('iniciarSesion') }}" class="btn btn-warning rounded-pill fw-bold px-4">Login</a>
 </header>
 
-<!-- Hero -->
 <section class="container py-5">
     <div class="row align-items-center g-5">
         <div class="col-md-6">
@@ -32,7 +30,6 @@
     </div>
 </section>
 
-<!-- Features -->
 <section class="container py-5">
     <div class="row g-4">
         <div class="col-md-4">
@@ -59,7 +56,6 @@
     </div>
 </section>
 
-<!-- Services -->
 <section class="text-center py-5">
     <h2>Our <span class="text-warning">Services</span></h2>
     <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
@@ -70,7 +66,6 @@
     </div>
 </section>
 
-<!-- Testimonials -->
 <section class="bg-dark text-white py-5">
     <div class="container text-center">
         <h2>Testimonial</h2>
@@ -97,7 +92,6 @@
     </div>
 </section>
 
-<!-- Footer -->
 <footer class="bg-primary text-white py-5">
     <div class="container">
         <div class="row g-4">
@@ -105,7 +99,7 @@
                 <div class="d-flex gap-2 mb-3">
                     <span>●</span><span>●</span><span>●</span>
                 </div>
-                <p class="small">There are many variations of passages...</p>
+                <p class="small">Lorem Ipsum is simply dummy text main...</p>
             </div>
             <div class="col-md-3">
                 <h4 class="text-warning">LET US HELP YOU</h4>
@@ -125,17 +119,16 @@
             </div>
             <div class="col-md-3">
                 <h4 class="text-warning">OUR DESIGN</h4>
-                <p class="small">There are many variations of passages...</p>
+                <p class="small">Lorem Ipsum is simply dummy text main...</p>                
                 <input type="email" class="form-control form-control-sm" placeholder="Enter your email">
-                <button class="btn btn-warning mt-2 btn-sm">Subscribe</button>
+                <button class="btn btn-warning mt-2 btn-sm">Register</button>
             </div>
         </div>
     </div>
 </footer>
 
-<!-- Copyright -->
 <div class="bg-dark text-white text-center py-2 small">
-    © 2019 All Rights Reserved. Design by Free Html Templates
+    © 2019 All Rights Reserved. Design by Lorem ipsum.
 </div>
 
 </body>

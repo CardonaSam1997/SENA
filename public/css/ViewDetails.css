@@ -22,3 +22,8 @@
             color: gold;
             font-size: 1.2rem;
         }
+
+         .card-body{
+            overflow-y: auto;
+            height: 520px;
+        }

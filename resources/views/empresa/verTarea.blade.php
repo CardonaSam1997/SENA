@@ -23,9 +23,9 @@
                 <td>2025-08-15</td>
                 <td><span class="badge bg-danger">Sin iniciar</span></td>
                 <td>
-                    <button class="btn btn-warning btn-sm me-1">
+                     <a href="{{ route('tareas.detalles') }}" class="btn btn-warning btn-sm me-1">
                         <i class="fas fa-pencil-alt"></i>
-                    </button>
+                    </a>
                     <button class="btn btn-danger btn-sm">
                         <i class="fas fa-trash-alt"></i>
                     </button>
@@ -38,9 +38,9 @@
                 <td>2025-08-20</td>
                 <td><span class="badge bg-primary">En Proceso</span></td>
                 <td>
-                    <button class="btn btn-warning btn-sm me-1">
+                     <a href="{{ route('tareas.detalles') }}" class="btn btn-warning btn-sm me-1">
                         <i class="fas fa-pencil-alt"></i>
-                    </button>
+                    </a>
                     <button class="btn btn-danger btn-sm">
                         <i class="fas fa-trash-alt"></i>
                     </button>
@@ -53,9 +53,9 @@
                 <td>2025-08-25</td>                
                 <td><span class="badge bg-danger">Sin iniciar</span></td>
                 <td>
-                    <button class="btn btn-warning btn-sm me-1">
+                     <a href="{{ route('tareas.detalles') }}" class="btn btn-warning btn-sm me-1">
                         <i class="fas fa-pencil-alt"></i>
-                    </button>
+                    </a>
                     <button class="btn btn-danger btn-sm">
                         <i class="fas fa-trash-alt"></i>
                     </button>
@@ -68,9 +68,9 @@
                 <td>2025-08-15</td>
                 <td><span class="badge bg-success">Entregado</span></td>
                 <td>
-                    <button class="btn btn-warning btn-sm me-1">
+                     <a href="{{ route('profesionales.show', ['id' => 1]) }}" class="btn btn-warning btn-sm me-1">
                         <i class="fas fa-pencil-alt"></i>
-                    </button>
+                    </a>
                     <button class="btn btn-danger btn-sm">
                         <i class="fas fa-trash-alt"></i>
                     </button>
@@ -83,9 +83,9 @@
                 <td>2025-08-20</td>
                 <td><span class="badge bg-primary">En Proceso</span></td>
                 <td>
-                    <button class="btn btn-warning btn-sm me-1">
+                     <a href="{{ route('tareas.detalles') }}" class="btn btn-warning btn-sm me-1">
                         <i class="fas fa-pencil-alt"></i>
-                    </button>
+                    </a>
                     <button class="btn btn-danger btn-sm">
                         <i class="fas fa-trash-alt"></i>
                     </button>
@@ -98,9 +98,9 @@
                 <td>2025-08-25</td>
                 <td><span class="badge bg-primary">En Proceso</span></td>
                 <td>
-                    <button class="btn btn-warning btn-sm me-1">
+                     <a href="{{ route('tareas.detalles') }}" class="btn btn-warning btn-sm me-1">
                         <i class="fas fa-pencil-alt"></i>
-                    </button>
+                    </a>
                     <button class="btn btn-danger btn-sm">
                         <i class="fas fa-trash-alt"></i>
                     </button>
@@ -113,9 +113,9 @@
                 <td>2025-08-15</td>
                 <td><span class="badge bg-success">Entregado</span></td>
                 <td>
-                    <button class="btn btn-warning btn-sm me-1">
+                    <a href="{{ route('profesionales.show', ['id' => 1]) }}" class="btn btn-warning btn-sm me-1">
                         <i class="fas fa-pencil-alt"></i>
-                    </button>
+                    </a>
                     <button class="btn btn-danger btn-sm">
                         <i class="fas fa-trash-alt"></i>
                     </button>
@@ -128,9 +128,9 @@
                 <td>2025-08-20</td>
                 <td><span class="badge bg-primary">En Proceso</span></td>
                 <td>
-                    <button class="btn btn-warning btn-sm me-1">
+                     <a href="{{ route('tareas.detalles') }}" class="btn btn-warning btn-sm me-1">
                         <i class="fas fa-pencil-alt"></i>
-                    </button>
+                    </a>
                     <button class="btn btn-danger btn-sm">
                         <i class="fas fa-trash-alt"></i>
                     </button>
@@ -143,9 +143,9 @@
                 <td>2025-08-25</td>
                 <td><span class="badge bg-primary">En Proceso</span></td>
                 <td>
-                    <button class="btn btn-warning btn-sm me-1">
+                     <a href="{{ route('tareas.detalles') }}" class="btn btn-warning btn-sm me-1">
                         <i class="fas fa-pencil-alt"></i>
-                    </button>
+                    </a>
                     <button class="btn btn-danger btn-sm">
                         <i class="fas fa-trash-alt"></i>
                     </button>
