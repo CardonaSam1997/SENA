@@ -1,0 +1,35 @@
+  body {
+            background-color: #f8f9fa;
+        }
+        .sidebar {
+            background-color: #2d4a5c;
+            color: white;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .card-custom {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            background-color: #d9f2d9;
+            text-align: center;
+            padding: 0.5rem;
+            font-weight: bold;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+        .tareas-disponibles{
+            overflow-y: auto;
+            height: 80vh;
+        }
+
+        .card-custom div{
+            height: 100px;
+        }

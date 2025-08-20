@@ -16,30 +16,54 @@
       <a href="#" id="toggle-btn" class="mb-2">
         <i class="fas fa-bars"></i> <span>Menú</span>
       </a>
-
-      <a href="{{ route('tareas.create') }}">
-        <i class="fas fa-plus-circle"></i><span>Publicar tarea</span>
-      </a>
-      <a href="{{ route('tareas.ver') }}">
-        <i class="fas fa-tasks"></i><span>Ver tareas</span>
-      </a>      
-      <a href="#">
-        <i class="fas fa-cog"></i><span>Configuración</span>
-      </a>
+      @if (request()->segment(1) == 'professional')      
+         <a href="{{ route('professional.search') }}" class="nav-link">
+            <i class="fas fa-search"></i><span>Buscar Tarea</span>
+        </a>
+        <a href="{{ route('professional.pendingTasks') }}" class="nav-link">      
+            <i class="fas fa-tasks"></i><span> Listar trabajos</span>
+        </a>
+        <a href="{{ route('professional.configuracion') }}" class="nav-link">
+            <i class="fas fa-cog"></i><span>Configuración</span>
+        </a>
+      @else      
+        <a href="{{ route('bussines.create') }}">
+          <i class="fas fa-plus-circle"></i><span>Publicar tarea</span>
+        </a>
+        <a href="{{ route('bussines.listar') }}">
+          <i class="fas fa-tasks"></i><span>Ver tareas</span>
+        </a>      
+        <a href="{{ route('bussines.configuracion') }}">
+          <i class="fas fa-cog"></i><span>Configuración</span>
+        </a>
+      @endif
     </aside>
 
     <div class="right">
       <header class="topbar">
         <img src="{{ asset('images/logo.png') }}" alt="Logo" style="width:160px;">
         <div class="d-flex align-items-center">
-          <a href="{{ route('view.notifications') }}" class="me-3 text-decoration-none">
+        @if (request()->segment(1) == 'professional')      
+        <a href="{{ route('professional.notification') }}" class="me-3 text-decoration-none" style="" id="notification">
+          <i class="fas fa-bell text-warning fs-4"></i>
+          <div class="circle"></div>
+        </a>          
+          @else
+          <a href="{{ route('view.notifications') }}" class="me-3 text-decoration-none" style="" id="notification">
             <i class="fas fa-bell text-warning fs-4"></i>
+            <div class="circle"></div>
           </a>
+          @endif
+
           <i id="user-icon" class="fas fa-user-circle fs-4" style="cursor:pointer;"></i>
           <div id="user-menu" class="position-absolute bg-white border rounded shadow-sm mt-5"
                style="display:none; right:24px; z-index:1000;">
-            <a href="#" class="d-flex align-items-center text-decoration-none text-dark px-3 py-2">
-              <i class="fas fa-door-open me-2"></i> Cerrar sesión
+            <a href="{{ route('pageMain') }}" class="d-flex align-items-center text-decoration-none text-dark px-3 py-2">
+              <i class="fas fa-door-open me-2"></i> Cerrar sesión              
+            </a>
+
+            <a href="#" class="d-flex align-items-center text-decoration-none text-danger px-3 py-2">
+              <i class="fas fa-user-slash me-2"></i> <strong>Eliminar cuenta</strong>
             </a>
           </div>
         </div>

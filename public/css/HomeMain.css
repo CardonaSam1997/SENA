@@ -5,7 +5,6 @@
     body { 
         margin:0; 
     }
-
     
     .app {
         display: flex;
@@ -13,7 +12,6 @@
         background: #fff;
     }
 
-    /* Sidebar */
     #sidebar{
         width: 220px;
         background: #25405e;
@@ -66,8 +64,21 @@
         background:#fff;
         padding: 24px 0;
     }    
-
-    /* Botón menú */
+    
     #toggle-btn{
         cursor:pointer; 
+    }
+
+    #notification{
+        position: relative;
+    }
+
+    #notification .circle{
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: red;
+        position: absolute;
+        top: 0px;
+        right: -2px;
     }

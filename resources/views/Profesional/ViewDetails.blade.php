@@ -1,4 +1,3 @@
-
 @extends('HomeMain')
 
 @section('styles')
@@ -9,6 +8,7 @@
     <div class="container py-4">
         <div class="row">
 
+            {{-- Columna izquierda: Info del usuario --}}
             <div class="col-lg-4">
                 <div class="card shadow-sm p-3 mb-4">
                     <div class="text-center">
@@ -22,14 +22,16 @@
                     <hr>
                     <p><strong>Años de experiencia:</strong> 5</p>
                     <p><strong>Lugar de residencia:</strong> Bogotá, Colombia</p>
-                    <p><strong>Correo:</strong> Bogotá, Colombia</p>
+                    <p><strong>Correo:</strong> juanperez@mail.com</p>
+                    <p><strong>Celular:</strong> 3001234567</p>
                     <p><strong>Hoja de vida:</strong> <a href="#">Descargar PDF</a></p>
                 </div>
             </div>                                  
             
+            {{-- Columna derecha: descripción + formulario --}}
             <div class="col-lg-8">
                 <div class="row">                     
-                    <div class="card shadow-sm p-3">
+                    <div class="card shadow-sm p-3 mb-4">
                         <h5 class="mb-3">Descripción</h5>                        
                         <p>
                             Profesional con amplia experiencia en el desarrollo de soluciones tecnológicas 
@@ -42,45 +44,62 @@
                 
                 <hr>
 
-                <div class="row">
-                    
-                    <div class="card shadow-sm p-3">
-                        <div class="card-head">
-                            <h5 class="mb-3">Comentarios de empresas</h5>
+                {{-- Formulario de actualización --}}
+                <div class="card shadow-sm p-3">
+                    <h5 class="mb-3">Actualizar información</h5>
+                    <form method="POST" action="#">
+                        @csrf
+                        @method('PUT')
+
+                        <div class="mb-3">
+                            <label for="cedula" class="form-label">Cedula</label>
+                            <input type="text" id="cedula" class="form-control" value="1234567890" disabled>
                         </div>
-                        <div class="card-body">
-                            <div class="comment-card">
-                                <strong>Empresa: Tech Solutions S.A.S</strong>
-                                <p>Excelente profesional, entregó todo antes de la fecha límite.</p>
-                            </div>
-                            
-                            <div class="comment-card">
-                                <strong>Empresa: InnovarTech</strong>
-                                <p>Muy comprometido y con gran capacidad para resolver problemas complejos.</p>
-                            </div>
-                            
-                            <div class="comment-card">
-                                <strong>Empresa: Software Creativo</strong>
-                                <p>Buena comunicación y calidad de trabajo.</p>
-                            </div>
-                            
-                            <div class="comment-card">
-                                <strong>Empresa: Tech Solutions S.A.S</strong>
-                                <p>Excelente profesional, entregó todo antes de la fecha límite.</p>
-                            </div>
-                            
-                            <div class="comment-card">
-                                <strong>Empresa: InnovarTech</strong>
-                                <p>Muy comprometido y con gran capacidad para resolver problemas complejos.</p>
-                            </div>
-                            
-                            <div class="comment-card">
-                                <strong>Empresa: Software Creativo</strong>
-                                <p>Buena comunicación y calidad de trabajo.</p>
-                            </div>
+
+                        <div class="form-group mb-3">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" value="Juan">
                         </div>
-                    </div>
+
+                        <div class="form-group mb-3">
+                            <label for="apellido">Apellido</label>
+                            <input type="text" class="form-control" id="apellido" name="apellido" value="Pérez">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                            <input type="date" id="fechaNacimiento" class="form-control" value="1995-08-20" disabled>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="celular">Celular</label>
+                            <input type="text" class="form-control" id="celular" name="celular" value="3001234567">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="correo">Correo</label>
+                            <input type="email" class="form-control" id="correo" name="correo" value="juanperez@mail.com">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="ciudad">Ciudad de residencia</label>
+                            <input type="text" class="form-control" id="ciudad" name="ciudad" value="Bogotá">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="campo">Campo (Área de trabajo)</label>
+                            <input type="text" class="form-control" id="campo" name="campo" value="Backend Development">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="hoja_vida" class="form-label">Subir nueva hoja de vida</label>
+                            <input type="file" class="form-control" id="hoja_vida" name="hoja_vida" accept=".pdf,.doc,.docx">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                    </form>
                 </div>
+
             </div>
         </div>
     </div>

@@ -61,7 +61,7 @@
         </div>
 
         <!-- <button type="submit" class="btn-submit">Registrarme</button> -->
-        <a href="{{ route('rol') }}"  class="btn-register d-block text-center " >Registrarme</a>
+        <a href="{{ route('professional.search') }}"  class="btn-register d-block text-center " >Registrarme</a>
 
 
     </form>

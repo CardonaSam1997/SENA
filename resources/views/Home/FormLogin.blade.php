@@ -30,6 +30,8 @@
 
         <div class="register-link">
             <a href="{{ route('registro') }}">¿No tienes cuenta? Regístrate</a>
+            <br>
+            <a href="{{ route('password.request') }}"><small>¿Olvidaste tu contraseña?</small></a>
         </div>
     </form>
 </div>

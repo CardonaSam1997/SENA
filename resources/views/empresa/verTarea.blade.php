@@ -23,7 +23,7 @@
                 <td>2025-08-15</td>
                 <td><span class="badge bg-danger">Sin iniciar</span></td>
                 <td>
-                     <a href="{{ route('tareas.detalles') }}" class="btn btn-warning btn-sm me-1">
+                     <a href="{{ route('bussines.detalles') }}" class="btn btn-warning btn-sm me-1">
                         <i class="fas fa-pencil-alt"></i>
                     </a>
                     <button class="btn btn-danger btn-sm">
@@ -38,7 +38,7 @@
                 <td>2025-08-20</td>
                 <td><span class="badge bg-primary">En Proceso</span></td>
                 <td>
-                     <a href="{{ route('tareas.detalles') }}" class="btn btn-warning btn-sm me-1">
+                     <a href="{{ route('bussines.detalles') }}" class="btn btn-warning btn-sm me-1">
                         <i class="fas fa-pencil-alt"></i>
                     </a>
                     <button class="btn btn-danger btn-sm">
@@ -53,7 +53,7 @@
                 <td>2025-08-25</td>                
                 <td><span class="badge bg-danger">Sin iniciar</span></td>
                 <td>
-                     <a href="{{ route('tareas.detalles') }}" class="btn btn-warning btn-sm me-1">
+                     <a href="{{ route('bussines.detalles') }}" class="btn btn-warning btn-sm me-1">
                         <i class="fas fa-pencil-alt"></i>
                     </a>
                     <button class="btn btn-danger btn-sm">
@@ -68,7 +68,7 @@
                 <td>2025-08-15</td>
                 <td><span class="badge bg-success">Entregado</span></td>
                 <td>
-                     <a href="{{ route('profesionales.show', ['id' => 1]) }}" class="btn btn-warning btn-sm me-1">
+                     <a href="{{ route('bussines.profesional.show', ['id' => 1]) }}" class="btn btn-warning btn-sm me-1">
                         <i class="fas fa-pencil-alt"></i>
                     </a>
                     <button class="btn btn-danger btn-sm">
@@ -83,7 +83,7 @@
                 <td>2025-08-20</td>
                 <td><span class="badge bg-primary">En Proceso</span></td>
                 <td>
-                     <a href="{{ route('tareas.detalles') }}" class="btn btn-warning btn-sm me-1">
+                     <a href="{{ route('bussines.detalles') }}" class="btn btn-warning btn-sm me-1">
                         <i class="fas fa-pencil-alt"></i>
                     </a>
                     <button class="btn btn-danger btn-sm">
@@ -98,7 +98,7 @@
                 <td>2025-08-25</td>
                 <td><span class="badge bg-primary">En Proceso</span></td>
                 <td>
-                     <a href="{{ route('tareas.detalles') }}" class="btn btn-warning btn-sm me-1">
+                     <a href="{{ route('bussines.detalles') }}" class="btn btn-warning btn-sm me-1">
                         <i class="fas fa-pencil-alt"></i>
                     </a>
                     <button class="btn btn-danger btn-sm">
@@ -113,7 +113,7 @@
                 <td>2025-08-15</td>
                 <td><span class="badge bg-success">Entregado</span></td>
                 <td>
-                    <a href="{{ route('profesionales.show', ['id' => 1]) }}" class="btn btn-warning btn-sm me-1">
+                    <a href="{{ route('bussines.profesional.show', ['id' => 1]) }}" class="btn btn-warning btn-sm me-1">
                         <i class="fas fa-pencil-alt"></i>
                     </a>
                     <button class="btn btn-danger btn-sm">
@@ -128,7 +128,7 @@
                 <td>2025-08-20</td>
                 <td><span class="badge bg-primary">En Proceso</span></td>
                 <td>
-                     <a href="{{ route('tareas.detalles') }}" class="btn btn-warning btn-sm me-1">
+                     <a href="{{ route('bussines.detalles') }}" class="btn btn-warning btn-sm me-1">
                         <i class="fas fa-pencil-alt"></i>
                     </a>
                     <button class="btn btn-danger btn-sm">
@@ -143,7 +143,7 @@
                 <td>2025-08-25</td>
                 <td><span class="badge bg-primary">En Proceso</span></td>
                 <td>
-                     <a href="{{ route('tareas.detalles') }}" class="btn btn-warning btn-sm me-1">
+                     <a href="{{ route('bussines.detalles') }}" class="btn btn-warning btn-sm me-1">
                         <i class="fas fa-pencil-alt"></i>
                     </a>
                     <button class="btn btn-danger btn-sm">
@@ -158,7 +158,7 @@
                 <td>2025-10-25</td>                
                 <td><span class="badge bg-warning">Solicitado</span></td>
                 <td>
-                    <a href="{{ route('tareas.detalles') }}" class="btn btn-warning btn-sm me-1">
+                    <a href="{{ route('bussines.detalles') }}" class="btn btn-warning btn-sm me-1">
                         <i class="fas fa-pencil-alt"></i>
                     </a>
                     <button class="btn btn-danger btn-sm">
