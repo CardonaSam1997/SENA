@@ -2,39 +2,38 @@
 
 @section('content')
 <div class="container py-5">
-    <div class="row justify-content-center">
+   <div class="row justify-content-center">
+    <h2 class="mb-4 text-primary fw-bold"><i class="fas fa-cog me-1"></i>Configuración cuenta</h2>
 
-        <div class="col-md-4">
-        <div class="card shadow-sm border-0 rounded-3">
-          <div class="card-header bg-primary text-white">
-            <h5 class="mb-0"><i class="fas fa-key me-2"></i> Cambiar Credenciales</h5>
-          </div>
-          <div class="card-body">
-            
-            <form>
-              <div class="mb-3">
-                <label for="correo" class="form-label"><i class="fas fa-envelope me-2"></i> Correo</label>
-                <input type="email" id="correo" class="form-control" placeholder="Ingrese nuevo correo">
-              </div>
+    {{-- Cambiar credenciales --}}  
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm border-0 rounded-3">
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0"><i class="fas fa-key me-2"></i> Cambiar Credenciales</h5>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="mb-3">
+              <label for="password" class="form-label">
+                <i class="fas fa-lock me-2"></i> Contraseña
+              </label>
+              <input type="password" id="password" class="form-control" placeholder="Ingrese nueva contraseña">
+            </div>
 
-              <div class="mb-3">
-                <label for="password" class="form-label"><i class="fas fa-lock me-2"></i> Contraseña</label>
-                <input type="password" id="password" class="form-control" placeholder="Ingrese nueva contraseña">
-              </div>
+            <div class="mb-3">
+              <label for="passwordConfirm" class="form-label">
+                <i class="fas fa-lock me-2"></i> Confirmar contraseña
+              </label>
+              <input type="password" id="passwordConfirm" class="form-control" placeholder="Repita la contraseña">
+            </div>
 
-              <div class="mb-3">
-                <label for="passwordConfirm" class="form-label"><i class="fas fa-lock me-2"></i> Confirmar contraseña</label>
-                <input type="password" id="passwordConfirm" class="form-control" placeholder="Repita la contraseña">
-              </div>
-
-              <button type="submit" class="btn btn-success w-100">
-                <i class="fas fa-save me-2"></i> Guardar cambios
-              </button>
-            </form>
-
-          </div>
+            <button type="submit" class="btn btn-success w-100">
+              <i class="fas fa-save me-2"></i> Guardar cambios
+            </button>
+          </form>
         </div>
       </div>
+    </div>
       
       <div class="col-md-8 mb-4">
         <div class="card shadow-sm border-0 rounded-3">

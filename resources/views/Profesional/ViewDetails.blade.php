@@ -7,6 +7,7 @@
 @section('content')
     <div class="container py-4">
         <div class="row">
+            <h2 class="mb-4 text-primary fw-bold">👤 Detalles del perfil</h2>
 
             {{-- Columna izquierda: Info del usuario --}}
             <div class="col-lg-4">
