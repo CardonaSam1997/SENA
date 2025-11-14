@@ -42,7 +42,3 @@ localhost/SENA/public/registro-profesional
 localhost/SENA/public/rol
 localhost/SENA/public/storage/{path}
 localhost/SENA/public/up
-
-Login > ¿No tienes cuenta? Registrate > Registrarme
-
-Segun el rol que escoja es la vista que sera mostrada
