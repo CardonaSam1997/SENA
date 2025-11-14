@@ -20,25 +20,25 @@
 - Cuando una url espera una variable "{id}" borramos las llaves y colocamos un numero, para que funcione
 - Se puede ingresar cualquier numero, no hay un numero fijo, no hay validacion momentanea
   
-localhost/SENA/public/
-localhost/SENA/public/calificar
-localhost/SENA/public/configuracion
-localhost/SENA/public/crear
-localhost/SENA/public/detalles-trabajo
-localhost/SENA/public/iniciar-sesion
-localhost/SENA/public/listar
-localhost/SENA/public/moderador
-localhost/SENA/public/notifications
-localhost/SENA/public/profesionales
-localhost/SENA/public/profesionales/{id}
-localhost/SENA/public/professional/PendingTask
-localhost/SENA/public/professional/buscarTarea
-localhost/SENA/public/professional/configuracion
-localhost/SENA/public/professional/notification
-localhost/SENA/public/recuperar-password
-localhost/SENA/public/registro
-localhost/SENA/public/registro-empresa
-localhost/SENA/public/registro-profesional
-localhost/SENA/public/rol
-localhost/SENA/public/storage/{path}
-localhost/SENA/public/up
+- localhost/SENA/public/
+- localhost/SENA/public/calificar
+- localhost/SENA/public/configuracion
+- localhost/SENA/public/crear
+- localhost/SENA/public/detalles-trabajo
+- localhost/SENA/public/iniciar-sesion
+- localhost/SENA/public/listar
+- localhost/SENA/public/moderador
+- localhost/SENA/public/notifications
+- localhost/SENA/public/profesionales
+- localhost/SENA/public/profesionales/{id}
+- localhost/SENA/public/professional/PendingTask
+- localhost/SENA/public/professional/buscarTarea
+- localhost/SENA/public/professional/configuracion
+- localhost/SENA/public/professional/notification
+- localhost/SENA/public/recuperar-password
+- localhost/SENA/public/registro
+- localhost/SENA/public/registro-empresa
+- localhost/SENA/public/registro-profesional
+- localhost/SENA/public/rol
+- localhost/SENA/public/storage/{path}
+- localhost/SENA/public/up
