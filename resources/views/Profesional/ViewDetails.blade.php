@@ -8,8 +8,7 @@
     <div class="container py-4">
         <div class="row">
             <h2 class="mb-4 text-primary fw-bold">👤 Detalles del perfil</h2>
-
-            {{-- Columna izquierda: Info del usuario --}}
+            
             <div class="col-lg-4">
                 <div class="card shadow-sm p-3 mb-4">
                     <div class="text-center">
@@ -28,8 +27,7 @@
                     <p><strong>Hoja de vida:</strong> <a href="#">Descargar PDF</a></p>
                 </div>
             </div>                                  
-            
-            {{-- Columna derecha: descripción + formulario --}}
+                        
             <div class="col-lg-8">
                 <div class="row">                     
                     <div class="card shadow-sm p-3 mb-4">
@@ -43,9 +41,7 @@
                     </div>                
                 </div>
                 
-                <hr>
-
-                {{-- Formulario de actualización --}}
+                <hr>                
                 <div class="card shadow-sm p-3">
                     <h5 class="mb-3">Actualizar información</h5>
                     <form method="POST" action="#">
