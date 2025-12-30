@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\professional;
+use App\Models\Professional;
 use Illuminate\Http\Request;
 
 class ProfessionalController extends Controller
@@ -34,7 +34,7 @@ class ProfessionalController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(professional $professional)
+    public function show(Professional $professional)
     {
         //
     }
@@ -42,7 +42,7 @@ class ProfessionalController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(professional $professional)
+    public function edit(Professional $professional)
     {
         //
     }
@@ -50,7 +50,7 @@ class ProfessionalController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, professional $professional)
+    public function update(Request $request, Professional $professional)
     {
         //
     }
@@ -58,7 +58,7 @@ class ProfessionalController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(professional $professional)
+    public function destroy(Professional $professional)
     {
         //
     }

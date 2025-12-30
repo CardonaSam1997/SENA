@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\file;
+use App\Models\File;
 use Illuminate\Http\Request;
 
 class FileController extends Controller
@@ -34,7 +34,7 @@ class FileController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(file $file)
+    public function show(File $file)
     {
         //
     }
@@ -42,7 +42,7 @@ class FileController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(file $file)
+    public function edit(File $file)
     {
         //
     }
@@ -50,7 +50,7 @@ class FileController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, file $file)
+    public function update(Request $request, File $file)
     {
         //
     }
@@ -58,7 +58,7 @@ class FileController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(file $file)
+    public function destroy(File $file)
     {
         //
     }
