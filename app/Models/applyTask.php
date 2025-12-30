@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class apply_task extends Model
+class ApplyTask extends Model
 {
-    //
+    protected $table = 'apply_task';
 }

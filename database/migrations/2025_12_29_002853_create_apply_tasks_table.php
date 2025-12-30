@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('apply_tasks', function (Blueprint $table) {
-            $table->id();
-            $table->primary(['id_profesionales', 'id_tareas']);
-            $table->foreignId('id_professional')->constrained('professionals')->onDelete('cascade');
-            $table->foreignId('id_task')->constrained('task')->onDelete('cascade');
+        Schema::create('apply_tasks', function (Blueprint $table) {            
+            $table->primary(['professional_id', 'task_id']);
+            $table->foreignId('professional_id')->constrained('professionals')->onDelete('cascade');
+            $table->foreignId('task_id')->constrained('tasks')->onDelete('cascade');
             $table->boolean('authorization')->default(false);
             $table->text('suggestion')->nullable();
             $table->integer('score');

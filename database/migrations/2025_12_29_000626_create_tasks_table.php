@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_company')->constrained('companies');
+            $table->foreignId('company_id')->constrained('companies');
             $table->string('title', 255);
             $table->text('content');
             $table->string('area', 255);

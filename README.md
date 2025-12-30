@@ -42,3 +42,6 @@
 - localhost/SENA/public/rol
 - localhost/SENA/public/storage/{path}
 - localhost/SENA/public/up
+
+## COMANDO LARAVEL
+- php artisan migrate:refresh --seed

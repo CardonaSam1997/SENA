@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\apply_task;
+use App\Models\applyTask;
 use Illuminate\Http\Request;
 
 class ApplyTaskController extends Controller
@@ -34,7 +34,7 @@ class ApplyTaskController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(apply_task $apply_task)
+    public function show(applyTask $apply_task)
     {
         //
     }
@@ -42,7 +42,7 @@ class ApplyTaskController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(apply_task $apply_task)
+    public function edit(applyTask $apply_task)
     {
         //
     }
@@ -50,7 +50,7 @@ class ApplyTaskController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, apply_task $apply_task)
+    public function update(Request $request, applyTask $apply_task)
     {
         //
     }
@@ -58,7 +58,7 @@ class ApplyTaskController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(apply_task $apply_task)
+    public function destroy(applyTask $apply_task)
     {
         //
     }
