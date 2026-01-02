@@ -5,8 +5,12 @@ use Illuminate\Support\Facades\Route;
 //PRINCIPAL
 Route::view('/', 'Home.Main')->name('pageMain');
 
+Route::middleware('auth')->group(function () {
+    Route::view('/iniciar-sesion', 'Home.FormLogin')->name('iniciarSesion');
+    //Route::get('/dashboard', [DashboardController::class, 'index']);
+});
+
 //Formularios de registro
-Route::view('/iniciar-sesion', 'Home.FormLogin')->name('iniciarSesion');
 Route::view('/registro', 'Home.FormRegister')->name('registro');
 Route::view('/rol', 'Home.FormRol')->name('rol');
 Route::view('/registro-profesional', 'Home.FormProfessional')->name('formPro');
