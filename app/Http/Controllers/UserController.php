@@ -32,23 +32,35 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){        
         $request->validate([
             'username' => 'required|string|max:100',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
+        
+        if(validated($request)->fails()){
+            return back()->withErrors(['password' => 'La contraseña debe tener al menos 6 caracteres'])->withInput();
+        }
 
+        if($request->password !== $request->password_confirmation){
+            return back()->withErrors(['password' => 'Las contraseñas no coinciden'])->withInput();
+        }
+        
+        $existeName = User::where('username', $request->username)->orWhere('email', $request->email)->exists();
+        if($existeName){
+            return back()->withErrors(['username' => 'El nombre de usuario o el email ya está en uso'])->withInput();
+        }
+        
         $user = User::create([
-            'name' => $request->username,
+            'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => 'pending',
             'completed' => false,
         ]);
 
-        return redirect()->route('register.role', $user->id);
+        return redirect()->route('Home.FormRol', $user->id);
     }
 
     /**

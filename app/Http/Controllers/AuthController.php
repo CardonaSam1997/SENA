@@ -20,7 +20,8 @@ class AuthController extends Controller
 
         return match ($user->role) {
             'admin' => redirect()->route('admin.dashboard'),
-            'user'  => redirect()->route('user.dashboard'),
+            'company'  => redirect()->route('compa.dashboard'),
+            'worker'  => redirect()->route('user.dashboard'),
             default => abort(403),
         };
     }

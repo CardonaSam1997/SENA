@@ -13,7 +13,7 @@
     <div class="d-flex align-items-center gap-2">
         <img src="{{asset('images/logo.png')}}" alt="Business Task Logo" height="60">
     </div>
-    <a href="{{ route('login.view') }}" class="btn btn-warning rounded-pill fw-bold px-4">Login</a>
+    <a href="{{ route('login') }}" class="btn btn-warning rounded-pill fw-bold px-4">Login</a>
 </header>
 
 <section class="container py-5">

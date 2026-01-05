@@ -10,11 +10,28 @@ use App\Models\Company;
 class RegisterController extends Controller
 {
 
+    public function store(Request $request)
+    {
+        $request->validate([
+            'username' => 'required|string|max:255|unique:users,username',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|confirmed|min:6',
+        ]);
+
+        $user = User::create([
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
+
+        // Redirige a la selección de rol pasando el ID del usuario recién creado
+        return redirect()->route('Home.FormRol', ['user' => $user->id]);
+    }
+
     public function selectRole(User $user){
         if ($user->completed) {
             abort(403);
         }
-
         return view('register.select-role', compact('user'));
     }
    

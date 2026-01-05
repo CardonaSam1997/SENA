@@ -11,6 +11,8 @@ Route::get('/login', [UserController::class, 'indexLogin'])->name('login');
 Route::post('/login', [UserController::class, 'indexLogin'])->name('sign-up');
 
 Route::prefix('register')->group(function () {
+    Route::view('/', 'Home.FormRegister')->name('registro');
+    Route::post('/', [UserController::class, 'store'])->name('register.store');
     Route::get('/role/{user}', [RegisterController::class, 'selectRole'])->name('register.role');
     Route::post('/professional/{user}', [RegisterController::class, 'storeProfessional'])->name('register.professional');
     Route::post('/company/{user}', [RegisterController::class, 'storeCompany'])->name('register.company');
@@ -18,22 +20,20 @@ Route::prefix('register')->group(function () {
 
 //ADMIN
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin', fn () => view('admin.dashboard'))
-        ->name('admin.dashboard');
+    Route::get('/admin', fn () => view('admin.dashboard'))->name('admin.dashboard');
 });
+
 //COMPANY
 Route::middleware(['auth', 'role:company'])->group(function () {
-    Route::get('/user', fn () => view('user.dashboard'))
-        ->name('user.dashboard');
+    Route::get('/user', fn () => view('user.dashboard'))->name('user.dashboard');
 });
+
 //PROFESSIONAL
 Route::middleware(['auth', 'role:worker'])->group(function () {
-    Route::get('/user', fn () => view('user.dashboard'))
-        ->name('user.dashboard');
+    Route::get('/user', fn () => view('user.dashboard'))->name('user.dashboard');
 });
 
 //Formularios de registro
-Route::view('/registro', 'Home.FormRegister')->name('registro');
 Route::view('/rol', 'Home.FormRol')->name('rol');
 Route::view('/registro-profesional', 'Home.FormProfessional')->name('formPro');
 Route::view('/registro-empresa', 'Home.FormBussines')->name('formBuss');

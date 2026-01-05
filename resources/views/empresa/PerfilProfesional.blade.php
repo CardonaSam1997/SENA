@@ -51,7 +51,6 @@
 </div>
 
 <script>
-    // Script simple para las estrellas
     const stars = document.querySelectorAll('#rating i');
     stars.forEach(star => {
         star.addEventListener('click', () => {

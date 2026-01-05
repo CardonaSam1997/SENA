@@ -15,8 +15,7 @@
             <p><strong>Fecha de vencimiento:</strong> 20/08/2025</p>
             <p><strong>Descripción:</strong> Se requiere el desarrollo de una página web corporativa con diseño responsivo, optimizada para SEO y con integración a un sistema de gestión de contenidos.</p>
             <p><strong>Archivo adjunto:</strong> <a href="#">Requisitos.pdf</a></p>
-
-            <!-- Nueva sección entrega del trabajo -->
+            
             <hr>
             <h5 class="mt-3">Entrega del trabajo</h5>
             <ul class="list-group mb-3">
@@ -24,8 +23,7 @@
                 <li class="list-group-item"><a href="#">Codigo_fuente.zip</a></li>
                 <li class="list-group-item"><a href="#">https://miweb-demo.com</a></li>
             </ul>
-
-            <!-- Calificación al profesional -->
+            
             <h5 class="mt-4">Calificar al profesional</h5>
             <p><strong>Profesional:</strong> Juan Pérez</p>
             
@@ -50,8 +48,7 @@
     </div>
 </div>
 
-<script>
-    // Script simple para las estrellas
+<script>    
     const stars = document.querySelectorAll('#rating i');
     stars.forEach(star => {
         star.addEventListener('click', () => {
