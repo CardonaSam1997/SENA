@@ -17,8 +17,10 @@ return new class extends Migration
             $table->string('password', 255);
             $table->string('email', 100)->unique();            
             $table->string('phone', 20)->nullable();
+            $table->string('role');
             $table->boolean('authentication')->default(false);
             $table->boolean('enable')->default(true);
+            $table->boolean('completed')->default(false);
             $table->timestamps();
         });
 

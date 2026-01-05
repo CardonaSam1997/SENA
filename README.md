@@ -45,3 +45,17 @@
 
 ## COMANDO LARAVEL
 - php artisan migrate:refresh --seed
+
+## DESPLEGAR LARAVEL
+- php artisan serve --host=0.0.0.0 --port=8000
+
+
+## IMPORTANTE
+Importante (no olvidar)
+
+El scheduler solo funciona si el cron del servidor está activo:
+
+* * * * * php /ruta/a/tu/proyecto/artisan schedule:run
+
+## PRUEBA MANUAL
+- php artisan users:clean-pending

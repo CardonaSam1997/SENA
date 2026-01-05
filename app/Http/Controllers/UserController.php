@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+
+    public function indexLogin(){
+        return view('Home.FormLogin');
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -20,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -28,7 +34,21 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'username' => 'required|string|max:100',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|confirmed|min:6',
+        ]);
+
+        $user = User::create([
+            'name' => $request->username,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => 'pending',
+            'completed' => false,
+        ]);
+
+        return redirect()->route('register.role', $user->id);
     }
 
     /**

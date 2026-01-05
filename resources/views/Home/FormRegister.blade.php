@@ -7,7 +7,7 @@
 @section('content')
 <div class="register-container shadow">
     <h2>Registrarse</h2>
-    <form method="" action="">
+    <form method="POST" action="">
         @csrf
 
         <div class="row">
@@ -39,7 +39,7 @@
         <a href="{{ route('rol') }}"  class="btn-register d-block text-center " >Registrarme</a>
 
         <div class="login-link">
-            <a href="{{ route('iniciarSesion') }}">¿Ya tienes cuenta? Inicia sesión</a>
+            <a href="{{ route('login') }}">¿Ya tienes cuenta? Inicia sesión</a>
         </div>
     </form>
 </div>

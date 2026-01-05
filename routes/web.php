@@ -1,13 +1,35 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RegisterController;
 
 //PRINCIPAL
 Route::view('/', 'Home.Main')->name('pageMain');
 
-Route::middleware('auth')->group(function () {
-    Route::view('/iniciar-sesion', 'Home.FormLogin')->name('iniciarSesion');
-    //Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/login', [UserController::class, 'indexLogin'])->name('login');
+Route::post('/login', [UserController::class, 'indexLogin'])->name('sign-up');
+
+Route::prefix('register')->group(function () {
+    Route::get('/role/{user}', [RegisterController::class, 'selectRole'])->name('register.role');
+    Route::post('/professional/{user}', [RegisterController::class, 'storeProfessional'])->name('register.professional');
+    Route::post('/company/{user}', [RegisterController::class, 'storeCompany'])->name('register.company');
+});
+
+//ADMIN
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/admin', fn () => view('admin.dashboard'))
+        ->name('admin.dashboard');
+});
+//COMPANY
+Route::middleware(['auth', 'role:company'])->group(function () {
+    Route::get('/user', fn () => view('user.dashboard'))
+        ->name('user.dashboard');
+});
+//PROFESSIONAL
+Route::middleware(['auth', 'role:worker'])->group(function () {
+    Route::get('/user', fn () => view('user.dashboard'))
+        ->name('user.dashboard');
 });
 
 //Formularios de registro
