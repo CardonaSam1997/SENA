@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('role');
             $table->boolean('authentication')->default(false);
             $table->boolean('enable')->default(true);
-            $table->string('completed')->nullable();
+            $table->boolean('completed')->default(false);
             $table->timestamps();
         });
 

@@ -12,7 +12,7 @@ class ProfessionalSeeder extends Seeder {
                 'name' => 'Juan',
                 'last_name' => 'Perez',
                 'address' => 'Calle 10',
-                'experiencia' => 5,
+                'experience' => 5,
                 'service_type' => 'Software',
             ],
             [
@@ -21,7 +21,7 @@ class ProfessionalSeeder extends Seeder {
                 'name' => 'Pedro',
                 'last_name' => 'Gomez',
                 'address' => 'Calle 20',
-                'experiencia' => 3,
+                'experience' => 3,
                 'service_type' => 'Infraestructura',
             ],
         ]);

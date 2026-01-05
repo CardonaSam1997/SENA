@@ -13,10 +13,18 @@ Route::post('/login', [UserController::class, 'indexLogin'])->name('sign-up');
 Route::prefix('register')->group(function () {
     Route::view('/', 'Home.FormRegister')->name('registro');
     Route::post('/', [UserController::class, 'store'])->name('register.store');
+    
     Route::get('/role/{user}', [RegisterController::class, 'selectRole'])->name('register.role');
-    Route::post('/professional/{user}', [RegisterController::class, 'storeProfessional'])->name('register.professional');
-    Route::post('/company/{user}', [RegisterController::class, 'storeCompany'])->name('register.company');
+    
+    // Formularios de rol
+    Route::get('/professional/{user}', [RegisterController::class, 'formProfessional'])->name('register.professional.form');
+    Route::post('/professional/{user}', [RegisterController::class, 'storeProfessional'])->name('register.professional.store');
+
+    Route::get('/company/{user}', [RegisterController::class, 'formCompany'])->name('register.company.form');
+    Route::post('/company/{user}', [RegisterController::class, 'storeCompany'])->name('register.company.store');
 });
+
+Route::view('/professional/notification', 'Main.ViewNotification')->name('professional.notification');
 
 //ADMIN
 Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -64,7 +72,7 @@ Route::view('/configuracion', 'empresa.configuracion')->name('bussines.configura
 ##PROFESIONAL##
 Route::view('/professional/buscarTarea', 'Profesional.SearchTask')->name('professional.search');
 Route::view('/professional/configuracion', 'Profesional.PendingTasks')->name('professional.pendingTasks');
-Route::view('/professional/notification', 'Main.ViewNotification')->name('professional.notification');
+
 Route::view('/professional/PendingTask', 'Profesional.ViewDetails')->name('professional.configuracion');
 
 //moderador

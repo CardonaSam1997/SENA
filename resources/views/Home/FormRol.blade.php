@@ -31,7 +31,7 @@
     <div class="row justify-content-center g-4">
       
         <div class="col-md-4">
-            <div class="role-card" onclick="selectRole('profesional')">
+            <div class="role-card" onclick="selectRole('professional')">
                 <i class="bi bi-person-workspace role-icon"></i>
                 <h5 class="fw-bold">Profesionales</h5>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -39,7 +39,7 @@
         </div>
         
         <div class="col-md-4">
-            <div class="role-card" onclick="selectRole('empresa')">
+            <div class="role-card" onclick="selectRole('bussines')">
                 <i class="bi bi-building role-icon"></i>
                 <h5 class="fw-bold">Empresas</h5>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -56,10 +56,12 @@
 </footer>
 <script>
     function selectRole(role) {
-        if (role === 'profesional') {
-            window.location.href = "{{ route('formPro') }}";
-        } else if (role === 'empresa') {            
-            window.location.href = "{{ route('formBuss') }}";            
+        let userId = {{ $user->id }};
+
+        if (role === 'professional') {
+            window.location.href = "{{ url('register/professional') }}/" + userId;
+        } else if (role === 'bussines') {            
+            window.location.href = "{{ url('register/company') }}/" + userId;            
         }
     }
 </script>

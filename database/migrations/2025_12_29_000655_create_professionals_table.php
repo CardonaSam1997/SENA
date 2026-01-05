@@ -18,8 +18,13 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('last_name', 100);
             $table->string('address', 255);
-            $table->integer('experiencia');
-            $table->string('service_type', 30);
+            $table->string('birth_date', 255)->nullable();
+            $table->string('description', 255)->nullable();            
+            $table->char('gender', 1)->nullable();
+            $table->string('age', 3)->nullable();
+            $table->integer('experience')->nullable();
+            $table->string('academic_education',150)->nullable();
+            $table->string('service_type', 30)->nullable();
             $table->string('document_photo', 100)->nullable();
             $table->string('curriculum', 100)->nullable();
             $table->timestamps();

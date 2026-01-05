@@ -57,5 +57,10 @@ El scheduler solo funciona si el cron del servidor está activo:
 
 * * * * * php /ruta/a/tu/proyecto/artisan schedule:run
 
+
+Manejo de archivos (document_photo y curriculum) usando el disco public. Asegúrate de tener el link simbólico de storage:
+
+php artisan storage:link
+
 ## PRUEBA MANUAL
 - php artisan users:clean-pending

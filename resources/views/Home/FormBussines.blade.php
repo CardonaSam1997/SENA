@@ -8,7 +8,8 @@
 @section('content')       
 <div class="form-container">
     <h2>Registro Empresa</h2>
-    <form method="POST" action="">
+    <form method="POST" action="{{ route('register.company.store', ['user' => $user->id]) }}">
+        @csrf
 
         <div class="row">
             <div class="col-md-6 mb-3">
