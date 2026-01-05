@@ -24,7 +24,6 @@ Route::prefix('register')->group(function () {
     Route::post('/company/{user}', [RegisterController::class, 'storeCompany'])->name('register.company.store');
 });
 
-Route::view('/professional/notification', 'Main.ViewNotification')->name('professional.notification');
 
 //ADMIN
 Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -37,7 +36,8 @@ Route::middleware(['auth', 'role:company'])->group(function () {
 });
 
 //PROFESSIONAL
-Route::middleware(['auth', 'role:worker'])->group(function () {
+Route::middleware(['auth', 'role:professional'])->prefix('/professional')->group(function () {
+    Route::view('/notification', 'Main.ViewNotification')->name('professional.notification');
     Route::get('/user', fn () => view('user.dashboard'))->name('user.dashboard');
 });
 

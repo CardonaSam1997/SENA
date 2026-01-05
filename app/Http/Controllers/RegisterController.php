@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Professional;
 use App\Models\Company;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -94,6 +95,9 @@ class RegisterController extends Controller
             'role' => 'professional',
             'completed' => true,
         ]);
+
+        $user = User::find($user->id);
+        Auth::login($user);
 
         #return redirect()->route('dashboard')->with('success', 'Registro profesional completado correctamente');
         return redirect()->route('professional.notification');        
