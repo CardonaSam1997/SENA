@@ -32,7 +32,7 @@ class RegisterController extends Controller
         if ($user->completed) {
             abort(403);
         }
-        return view('register.select-role', compact('user'));
+        return view('Home.FormRol', compact('user'));
     }
    
     public function storeProfessional(Request $request, User $user){

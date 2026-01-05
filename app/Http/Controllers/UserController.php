@@ -37,11 +37,15 @@ class UserController extends Controller
             'username' => 'required|string|max:100',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed|min:6',
-        ]);
-        
-        if(validated($request)->fails()){
-            return back()->withErrors(['password' => 'La contraseña debe tener al menos 6 caracteres'])->withInput();
-        }
+        ], [
+            'username.required' => 'El nombre de usuario es obligatorio',
+            'email.required' => 'El correo electrónico es obligatorio',
+            'email.email' => 'El correo electrónico no es válido',
+            'email.unique' => 'El correo electrónico ya está en uso',
+            'password.required' => 'La contraseña es obligatoria',
+            'password.confirmed' => 'Las contraseñas no coinciden',
+            'password.min' => 'La contraseña debe tener al menos 6 caracteres',
+        ]);     
 
         if($request->password !== $request->password_confirmation){
             return back()->withErrors(['password' => 'Las contraseñas no coinciden'])->withInput();
@@ -60,7 +64,7 @@ class UserController extends Controller
             'completed' => false,
         ]);
 
-        return redirect()->route('Home.FormRol', $user->id);
+        return redirect()->route('register.role', ['user' => $user->id]);
     }
 
     /**
