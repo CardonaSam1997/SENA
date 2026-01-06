@@ -10,18 +10,17 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
-
-        if (!Auth::attempt($credentials)) {
+        $credentials = $request->only('email', 'password');        
+        if (!Auth::attempt($credentials, $request->boolean('remember'))) {
             return back()->withErrors(['email' => 'Credenciales inválidas']);
         }
 
         $user = Auth::user();
-
+        
         return match ($user->role) {
-            'admin' => redirect()->route('admin.dashboard'),
-            'company'  => redirect()->route('compa.dashboard'),
-            'worker'  => redirect()->route('user.dashboard'),
+            'company'  => redirect()->route('bussines.create'),
+            'admin' => redirect()->route('gestion'),
+            'professional'  => redirect()->route('professional.notification'),
             default => abort(403),
         };
     }

@@ -2,13 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
 
 //PRINCIPAL
 Route::view('/', 'Home.Main')->name('pageMain');
 
 Route::get('/login', [UserController::class, 'indexLogin'])->name('login');
-Route::post('/login', [UserController::class, 'indexLogin'])->name('sign-up');
+Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 
 Route::prefix('register')->group(function () {
     Route::view('/', 'Home.FormRegister')->name('registro');
@@ -25,20 +26,23 @@ Route::prefix('register')->group(function () {
 });
 
 
+Route::view('/moderador', 'moderador.gestionUsuarios')->name('gestion');
 //ADMIN
-Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin', fn () => view('admin.dashboard'))->name('admin.dashboard');
+Route::middleware(['auth', 'role:admin'])->group(function () {    
+
+
+    #Route::get('/admin', fn () => view('admin.dashboard'))->name('admin.dashboard');
 });
 
 //COMPANY
 Route::middleware(['auth', 'role:company'])->group(function () {
-    Route::get('/user', fn () => view('user.dashboard'))->name('user.dashboard');
+    Route::view('/crear', 'empresa.crearTarea')->name('bussines.create');
 });
 
 //PROFESSIONAL
 Route::middleware(['auth', 'role:professional'])->prefix('/professional')->group(function () {
     Route::view('/notification', 'Main.ViewNotification')->name('professional.notification');
-    Route::get('/user', fn () => view('user.dashboard'))->name('user.dashboard');
+    #Route::get('/user', fn () => view('user.dashboard'))->name('user.dashboard');
 });
 
 //Formularios de registro
@@ -49,13 +53,12 @@ Route::view('/recuperar-password', 'Home.ForgotPassword')->name('password.reques
 Route::view('/notifications', 'Main.ViewNotification')->name('view.notifications');
 
 //EMPRESA
-Route::view('/crear', 'empresa.crearTarea')->name('bussines.create');
+#Route::view('/crear', 'empresa.crearTarea')->name('bussines.create');
 Route::view('/listar', 'empresa.verTarea')->name('bussines.listar');
 Route::view('/detalles-trabajo', 'empresa.detallesTarea')->name('bussines.detalles');
 Route::view('/calificar', 'empresa.calificacion')->name('bussines.calificacion');
 Route::get('/profesionales', function () {
-    return view('Profesional.ViewDetails');
-})->name('profesionales.index');
+    return view('Profesional.ViewDetails');})->name('profesionales.index');
 Route::get('/profesionales/{id}', function ($id) {    
     $profesional = (object)[
         'id' => $id,
@@ -67,6 +70,8 @@ Route::get('/profesionales/{id}', function ($id) {
     $yaCalificado = $profesional->calificacion !== null;
     return view('empresa.PerfilProfesional', compact('profesional', 'yaCalificado'));
 })->name('bussines.profesional.show');
+
+
 Route::view('/configuracion', 'empresa.configuracion')->name('bussines.configuracion');
 
 ##PROFESIONAL##

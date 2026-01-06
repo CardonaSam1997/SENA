@@ -20,6 +20,7 @@ return new class extends Migration
             $table->boolean('authentication')->default(false);
             $table->boolean('enable')->default(true);
             $table->boolean('completed')->default(false);
+            $table->string('remember_token')->nullable();
             $table->timestamps();
         });
 

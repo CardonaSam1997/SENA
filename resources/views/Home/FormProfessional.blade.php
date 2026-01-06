@@ -169,7 +169,7 @@
                 @enderror
             </div>            
 
-            <div class="col-md-6  mb-3">
+            <div class="col-md-6 mb-3">
                 <label for="hoja_vida" class="form-label">Subir hoja de vida</label>
                 <input type="file" class="form-control @error('curriculum') is-invalid @enderror" 
                        id="hoja_vida" name="curriculum" accept=".pdf">

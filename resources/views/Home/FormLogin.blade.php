@@ -5,9 +5,16 @@
 @endsection
 
 @section('content')
+@error('email')
+    <div class="text-danger small">
+        {{ $message }}
+    </div>
+@enderror
+
+
 <div class="login-container shadow">
     <h2>Iniciar Sesión</h2>
-    <form method="POST" action="{{ route('sign-up') }}">
+    <form method="POST" action="{{ route('login.submit') }}">
         @csrf
         <div class="mb-3">
             <label for="email" class="form-label">Correo electrónico</label>
