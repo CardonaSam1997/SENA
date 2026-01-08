@@ -64,3 +64,14 @@ php artisan storage:link
 
 ## PRUEBA MANUAL
 - php artisan users:clean-pending
+
+## LIMPIAR PROYECTO
+
+  - php artisan route:clear
+  - php artisan cache:clear
+  - php artisan config:clear
+
+
+
+## LISTAR RUTAS
+  - php artisan route:list

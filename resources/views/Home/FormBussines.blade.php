@@ -50,7 +50,7 @@
         </div>
 
         <!-- <button type="submit" class="btn-submit">Registrar Empresa</button> -->
-        <a href="{{ route('bussines.create') }}"  class="btn-register d-block text-center " >Registrar empresa</a>
+        <a href="{{ route('company.create') }}"  class="btn-register d-block text-center " >Registrar empresa</a>
 
     </form>
 </div>

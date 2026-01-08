@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\TaskController;
 
 //PRINCIPAL
 Route::view('/', 'Home.Main')->name('pageMain');
@@ -26,25 +28,24 @@ Route::prefix('register')->group(function () {
 });
 
 
-Route::view('/moderador', 'moderador.gestionUsuarios')->name('gestion');
 //ADMIN
-Route::middleware(['auth', 'role:admin'])->group(function () {    
-
-
-    #Route::get('/admin', fn () => view('admin.dashboard'))->name('admin.dashboard');
+Route::middleware(['auth', 'role:admin'])->prefix('/admin')->name('admin.')->group(function () {            
+    Route::view('/crear', 'empresa.prueba')->name('main');    
 });
 
 //COMPANY
-Route::middleware(['auth', 'role:company'])->group(function () {
-    Route::view('/crear', 'empresa.crearTarea')->name('bussines.create');
+Route::middleware(['auth', 'role:company'])->prefix('/company')->name('company.')->group(function () {
+    Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
+    Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');    
 });
 
 //PROFESSIONAL
-Route::middleware(['auth', 'role:professional'])->prefix('/professional')->group(function () {
-    Route::view('/notification', 'Main.ViewNotification')->name('professional.notification');
-    #Route::get('/user', fn () => view('user.dashboard'))->name('user.dashboard');
+Route::middleware(['auth', 'role:professional'])->prefix('/professional')->name('professional.')->group(function () {
+    Route::view('/notification', 'Main.ViewNotification')->name('notification');
 });
 
+
+#Route::get('/user', fn () => view('user.dashboard'))->name('user.dashboard');
 //Formularios de registro
 Route::view('/rol', 'Home.FormRol')->name('rol');
 Route::view('/registro-profesional', 'Home.FormProfessional')->name('formPro');
@@ -53,7 +54,7 @@ Route::view('/recuperar-password', 'Home.ForgotPassword')->name('password.reques
 Route::view('/notifications', 'Main.ViewNotification')->name('view.notifications');
 
 //EMPRESA
-#Route::view('/crear', 'empresa.crearTarea')->name('bussines.create');
+
 Route::view('/listar', 'empresa.verTarea')->name('bussines.listar');
 Route::view('/detalles-trabajo', 'empresa.detallesTarea')->name('bussines.detalles');
 Route::view('/calificar', 'empresa.calificacion')->name('bussines.calificacion');

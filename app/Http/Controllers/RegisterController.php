@@ -135,7 +135,7 @@ class RegisterController extends Controller
         ]);
 
         #return redirect()->route('dashboard')->with('success', 'Registro de empresa completado correctamente');
-        return redirect()->route('bussines.create');
+        return redirect()->route('company.create');
     }
     
 

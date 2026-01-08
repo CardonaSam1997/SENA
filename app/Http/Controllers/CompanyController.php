@@ -12,15 +12,15 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        
     }
-
+    
     /**
      * Show the form for creating a new resource.
-     */
+    */
     public function create()
     {
-        //
+        
     }
 
     /**
