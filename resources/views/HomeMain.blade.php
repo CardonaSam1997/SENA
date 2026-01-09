@@ -28,7 +28,7 @@
             <a href="{{ route('professional.configuracion') }}" class="nav-link text-white py-2"><i class="fas fa-cog me-2"></i><span class="link-text">Configuración</span></a>
           @else
             <a href="{{ route('company.tasks.create') }}" class="nav-link text-white py-2"><i class="fas fa-plus-circle me-2"></i><span class="link-text">Publicar tarea</span></a>
-            <a href="{{ route('bussines.listar') }}" class="nav-link text-white py-2"><i class="fas fa-tasks me-2"></i><span class="link-text">Ver tareas</span></a>
+            <a href="{{ route('company.tasks.index') }}" class="nav-link text-white py-2"><i class="fas fa-tasks me-2"></i><span class="link-text">Ver tareas</span></a>
             <a href="{{ route('bussines.configuracion') }}" class="nav-link text-white py-2"><i class="fas fa-cog me-2"></i><span class="link-text">Configuración</span></a>
           @endif
         </nav>
@@ -94,7 +94,7 @@
           <a href="{{ route('professional.configuracion') }}" class="nav-link mb-2"><i class="fas fa-cog me-2"></i>Configuración</a>
         @else
           <a href="{{ route('company.tasks.create') }}" class="nav-link mb-2"><i class="fas fa-plus-circle me-2"></i>Publicar tarea</a>
-          <a href="{{ route('bussines.listar') }}" class="nav-link mb-2"><i class="fas fa-tasks me-2"></i>Ver tareas</a>
+          <a href="{{ route('company.tasks.index') }}" class="nav-link mb-2"><i class="fas fa-tasks me-2"></i>Ver tareas</a>
           <a href="{{ route('bussines.configuracion') }}" class="nav-link mb-2"><i class="fas fa-cog me-2"></i>Configuración</a>
         @endif
       </div>

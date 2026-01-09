@@ -13,9 +13,15 @@ class TaskController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+   public function index()
     {
-        //
+        $company = Auth::user()->company;
+        $tasks = Task::where('company_id', $company->id)
+            ->where('enable', true)->where('state', '!=', 'Finalizada')
+            ->orderBy('id', 'desc')
+            ->paginate(10);
+
+        return view('empresa.verTarea', compact('tasks'));
     }
 
     /**

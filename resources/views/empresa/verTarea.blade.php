@@ -16,159 +16,54 @@
                     <th>Acciones</th>
                 </tr>
             </thead>
-            <tbody>            
-                <tr>
-                    <td>1</td>
-                    <td>Diseño de Landing Page</td>
-                    <td>Diseño</td>
-                    <td>2025-08-15</td>
-                    <td><span class="badge bg-danger">Sin iniciar</span></td>
-                    <td>
-                        <a href="{{ route('bussines.detalles') }}" class="btn btn-warning btn-sm me-1">
-                            <i class="fas fa-pencil-alt"></i>
-                        </a>
-                        <button class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </td>
-                </tr>            
-                <tr>
-                    <td>2</td>
-                    <td>Desarrollo de API</td>
-                    <td>Sistemas</td>
-                    <td>2025-08-20</td>
-                    <td><span class="badge bg-primary">En Proceso</span></td>
-                    <td>
-                        <a href="{{ route('bussines.detalles') }}" class="btn btn-warning btn-sm me-1">
-                            <i class="fas fa-pencil-alt"></i>
-                        </a>
-                        <button class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Campaña de Marketing</td>
-                    <td>Marketing</td>
-                    <td>2025-08-25</td>                
-                    <td><span class="badge bg-danger">Sin iniciar</span></td>
-                    <td>
-                        <a href="{{ route('bussines.detalles') }}" class="btn btn-warning btn-sm me-1">
-                            <i class="fas fa-pencil-alt"></i>
-                        </a>
-                        <button class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </td>
-                </tr>             
-                <tr>
-                    <td>4</td>
-                    <td>Diseño de Landing Page</td>
-                    <td>Diseño</td>
-                    <td>2025-08-15</td>
-                    <td><span class="badge bg-success">Entregado</span></td>
-                    <td>
-                        <a href="{{ route('bussines.profesional.show', ['id' => 1]) }}" class="btn btn-warning btn-sm me-1">
-                            <i class="fas fa-pencil-alt"></i>
-                        </a>
-                        <button class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Desarrollo de API</td>
-                    <td>Sistemas</td>
-                    <td>2025-08-20</td>
-                    <td><span class="badge bg-primary">En Proceso</span></td>
-                    <td>
-                        <a href="{{ route('bussines.detalles') }}" class="btn btn-warning btn-sm me-1">
-                            <i class="fas fa-pencil-alt"></i>
-                        </a>
-                        <button class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </td>
-                </tr>            
-                <tr>
-                    <td>6</td>
-                    <td>Campaña de Marketing</td>
-                    <td>Marketing</td>
-                    <td>2025-08-25</td>
-                    <td><span class="badge bg-primary">En Proceso</span></td>
-                    <td>
-                        <a href="{{ route('bussines.detalles') }}" class="btn btn-warning btn-sm me-1">
-                            <i class="fas fa-pencil-alt"></i>
-                        </a>
-                        <button class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </td>
-                </tr>             
-                <tr>
-                    <td>7</td>
-                    <td>Diseño de Landing Page</td>
-                    <td>Diseño</td>
-                    <td>2025-08-15</td>
-                    <td><span class="badge bg-success">Entregado</span></td>
-                    <td>
-                        <a href="{{ route('bussines.profesional.show', ['id' => 1]) }}" class="btn btn-warning btn-sm me-1">
-                            <i class="fas fa-pencil-alt"></i>
-                        </a>
-                        <button class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </td>
-                </tr>            
-                <tr>
-                    <td>8</td>
-                    <td>Desarrollo de API</td>
-                    <td>Sistemas</td>
-                    <td>2025-08-20</td>
-                    <td><span class="badge bg-primary">En Proceso</span></td>
-                    <td>
-                        <a href="{{ route('bussines.detalles') }}" class="btn btn-warning btn-sm me-1">
-                            <i class="fas fa-pencil-alt"></i>
-                        </a>
-                        <button class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </td>
-                </tr>            
-                <tr>
-                    <td>9</td>
-                    <td>Campaña de Marketing</td>
-                    <td>Marketing</td>
-                    <td>2025-08-25</td>
-                    <td><span class="badge bg-primary">En Proceso</span></td>
-                    <td>
-                        <a href="{{ route('bussines.detalles') }}" class="btn btn-warning btn-sm me-1">
-                            <i class="fas fa-pencil-alt"></i>
-                        </a>
-                        <button class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>Desarrollo de página web corporativa</td>
-                    <td>Desarrollo web</td>
-                    <td>2025-10-25</td>                
-                    <td><span class="badge bg-warning">Solicitado</span></td>
-                    <td>
-                        <a href="{{ route('bussines.detalles') }}" class="btn btn-warning btn-sm me-1">
-                            <i class="fas fa-pencil-alt"></i>
-                        </a>
-                        <button class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
+            <tbody>
+                @foreach ($tasks as $task)
+                    <tr>
+                        <td>{{ $task->id }}</td>
+                        <td>{{ $task->title }}</td>
+                        <td>{{ $task->area }}</td>
+                        <td>{{ $task->expiration_date->format('Y-m-d') }}</td>
+                        <td>
+                            @php
+                                $badge = match($task->state) {
+                                    'pendiente' => 'danger',
+                                    'asignada' => 'primary',
+                                    'finalizada' => 'success',
+                                    default => 'secondary',
+                                };
+                            @endphp
+
+                            <span class="badge bg-{{ $badge }}">
+                                {{ ucfirst($task->state) }}
+                            </span>
+                        </td>
+                        <td>
+                            
+                            <a href=""
+                            class="btn btn-warning btn-sm me-1">
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+                            
+                            <form action=""
+                                method="POST"
+                                class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger btn-sm"
+                                        onclick="return confirm('¿Eliminar esta tarea?')">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+
         </table>
+        <div class="d-flex justify-content-center mt-3">
+    {{ $tasks->links('pagination::bootstrap-5') }}
+</div>
+
     </div>
 </div>
 
@@ -200,10 +95,15 @@
 $(document).ready(function() {
     $('#tablaTareas').DataTable({
         responsive: true,
+        paging: false,
+        searching: false,
+        info: false,
+        ordering: false,
         language: {
             url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json'
         }
     });
 });
 </script>
+
 @endsection

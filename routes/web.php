@@ -35,8 +35,10 @@ Route::middleware(['auth', 'role:admin'])->prefix('/admin')->name('admin.')->gro
 
 //COMPANY
 Route::middleware(['auth', 'role:company'])->prefix('/company')->name('company.')->group(function () {
+    Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
     Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
     Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');    
+   
 });
 
 //PROFESSIONAL
@@ -55,7 +57,7 @@ Route::view('/notifications', 'Main.ViewNotification')->name('view.notifications
 
 //EMPRESA
 
-Route::view('/listar', 'empresa.verTarea')->name('bussines.listar');
+
 Route::view('/detalles-trabajo', 'empresa.detallesTarea')->name('bussines.detalles');
 Route::view('/calificar', 'empresa.calificacion')->name('bussines.calificacion');
 Route::get('/profesionales', function () {
