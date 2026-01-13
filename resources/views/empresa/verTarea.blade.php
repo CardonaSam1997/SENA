@@ -44,7 +44,7 @@
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
                             
-                            <form action=""
+                            <form action="{{ route('company.tasks.destroy', $task->id) }}"
                                 method="POST"
                                 class="d-inline">
                                 @csrf

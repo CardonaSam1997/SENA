@@ -9,7 +9,7 @@ class UserSeeder extends Seeder {
         User::insert([
             [
                 'username' => 'Empresa Uno',
-                'email' => 'company@mail.com',
+                'email' => 'company@gmail.com',
                 'password' => Hash::make('123'),                
                 'role' => 'company',
                 'created_at' => now(),

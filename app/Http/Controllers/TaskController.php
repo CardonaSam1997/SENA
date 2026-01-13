@@ -125,6 +125,16 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
+        if ($task->company_id !== auth()->user()->company->id) {
+            abort(403, 'No autorizado');
+        }
+
+        $task->delete();
+
+        return redirect()
+            ->back()
+            ->with('success', 'Tarea eliminada correctamente');
     }
+
+
 }
