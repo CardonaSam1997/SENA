@@ -39,10 +39,10 @@
                         </td>
                         <td>
                             
-                            <a href=""
-                            class="btn btn-warning btn-sm me-1">
+                            <a href="{{ route('company.tasks.edit', $task->id) }}" class="btn btn-warning btn-sm me-1">
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
+
                             
                             <form action="{{ route('company.tasks.destroy', $task->id) }}"
                                 method="POST"

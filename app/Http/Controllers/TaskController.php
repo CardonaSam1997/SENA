@@ -54,7 +54,7 @@ class TaskController extends Controller
             DB::transaction(function () use ($request, &$storedFiles) {
 
                 $task = Task::create([
-                    'company_id'      => auth()->user()->company->id,
+                    'company_id'      => Auth::user()->company->id,
                     'title'           => $request->title,
                     'content'         => $request->content,
                     'area'            => $request->area,
@@ -109,23 +109,47 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        //
+        if ($task->company_id !== Auth::user()->company->id) {
+            abort(403);
+        }
+
+        $task->load('files');
+
+        return view('empresa.task.editTask', compact('task'));
     }
+
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Task $task)
-    {
-        //
+    {        
+        if ($task->company_id !== Auth::user()->company->id) {
+            abort(403, 'No autorizado');
+        }
+     
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'money' => 'required|numeric|min:0',
+            'content' => 'required|string',
+            'area' => 'required|string',
+            'expiration_date' => 'required|date',
+        ]);
+        
+        $task->update($validated);
+
+        return redirect()
+            ->route('company.tasks.index')
+            ->with('success', 'Tarea actualizada correctamente');
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Task $task)
     {
-        if ($task->company_id !== auth()->user()->company->id) {
+        if ($task->company_id !== Auth::user()->company->id) {
             abort(403, 'No autorizado');
         }
 
