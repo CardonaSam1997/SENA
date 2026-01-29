@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\Auth\RecoveryPasswordController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\TaskController;
@@ -12,6 +13,11 @@ Route::view('/', 'Home.Main')->name('pageMain');
 
 Route::get('/login', [UserController::class, 'indexLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
+
+Route::get('/forgot-password', [RecoveryPasswordController::class, 'showForgotForm'])->name('password.request');
+Route::post('/forgot-password', [RecoveryPasswordController::class, 'sendResetLink'])->name('password.email');
+Route::get('/reset-password/{token}', [RecoveryPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('/reset-password', [RecoveryPasswordController::class, 'resetPassword'])->name('password.update');
 
 Route::prefix('register')->group(function () {
     Route::view('/', 'Home.FormRegister')->name('registro');
@@ -52,7 +58,9 @@ Route::middleware(['auth', 'role:professional'])->prefix('/professional')->name(
 Route::view('/rol', 'Home.FormRol')->name('rol');
 Route::view('/registro-profesional', 'Home.FormProfessional')->name('formPro');
 Route::view('/registro-empresa', 'Home.FormBussines')->name('formBuss');
-Route::view('/recuperar-password', 'Home.ForgotPassword')->name('password.request');
+
+
+
 Route::view('/notifications', 'Main.ViewNotification')->name('view.notifications');
 
 //EMPRESA
