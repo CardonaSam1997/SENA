@@ -15,14 +15,12 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 
 Route::prefix('register')->group(function () {
     Route::view('/', 'Home.FormRegister')->name('registro');
-    Route::post('/', [UserController::class, 'store'])->name('register.store');
-    
-    Route::get('/role/{user}', [RegisterController::class, 'selectRole'])->name('register.role');
-    
+    Route::post('/', [UserController::class, 'store'])->name('register.store');    
+
+    Route::get('/role/{user}', [RegisterController::class, 'selectRole'])->name('register.role');    
     // Formularios de rol
     Route::get('/professional/{user}', [RegisterController::class, 'formProfessional'])->name('register.professional.form');
     Route::post('/professional/{user}', [RegisterController::class, 'storeProfessional'])->name('register.professional.store');
-
     Route::get('/company/{user}', [RegisterController::class, 'formCompany'])->name('register.company.form');
     Route::post('/company/{user}', [RegisterController::class, 'storeCompany'])->name('register.company.store');
 });

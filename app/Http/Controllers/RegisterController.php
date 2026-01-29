@@ -16,7 +16,7 @@ class RegisterController extends Controller
     }
 
     public function formCompany(User $user) {
-        return view('Home.FormCompany', compact('user'));
+        return view('Home.FormBussines', compact('user'));
     }
 
     public function store(Request $request)
@@ -134,8 +134,8 @@ class RegisterController extends Controller
             'completed' => true,
         ]);
 
-        #return redirect()->route('dashboard')->with('success', 'Registro de empresa completado correctamente');
-        return redirect()->route('company.create');
+        return redirect()->route('company.tasks.index')->with('success', 'Registro de empresa completado correctamente');
+        #return redirect()->route('company.create');
     }
     
 
