@@ -1,6 +1,28 @@
 @extends('HomeMain')
 
 @section('content')
+@if(session('welcome_company'))
+<div class="modal fade" id="welcomeModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">¡Bienvenido!</h5>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Tu empresa fue registrada correctamente.  
+                    Desde aquí puedes crear y gestionar tus tareas.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                    Entendido
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
 <div class="container-fluid px-2 px-md-4">
     <h2 class="mb-4 text-center text-md-start">Lista de Tareas</h2>
 
@@ -106,4 +128,15 @@ $(document).ready(function() {
 });
 </script>
 
+
+@if(session('welcome_company'))
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const modal = new bootstrap.Modal(
+            document.getElementById('welcomeModal')
+        );
+        modal.show();
+    });
+</script>
+@endif
 @endsection

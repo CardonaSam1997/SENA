@@ -1,22 +1,22 @@
 <x-mail::message>
-{{-- Greeting --}}
+{{-- Saludo --}}
 @if (! empty($greeting))
 # {{ $greeting }}
 @else
 @if ($level === 'error')
-# @lang('Whoops!')
+# @lang('¡Ups!')
 @else
-# @lang('Hello!')
+# @lang('¡Hola!')
 @endif
 @endif
 
-{{-- Intro Lines --}}
+{{-- Líneas de introducción --}}
 @foreach ($introLines as $line)
 {{ $line }}
 
 @endforeach
 
-{{-- Action Button --}}
+{{-- Botón de acción --}}
 @isset($actionText)
 <?php
     $color = match ($level) {
@@ -29,26 +29,26 @@
 </x-mail::button>
 @endisset
 
-{{-- Outro Lines --}}
+{{-- Líneas de cierre --}}
 @foreach ($outroLines as $line)
 {{ $line }}
 
 @endforeach
 
-{{-- Salutation --}}
+{{-- Despedida --}}
 @if (! empty($salutation))
 {{ $salutation }}
 @else
-@lang('Regards,')<br>
+@lang('Saludos,')<br>
 {{ config('app.name') }}
 @endif
 
-{{-- Subcopy --}}
+{{-- Subcopia --}}
 @isset($actionText)
 <x-slot:subcopy>
 @lang(
-    "If you're having trouble clicking the \":actionText\" button, copy and paste the URL below\n".
-    'into your web browser:',
+    "Si tienes problemas al hacer clic en el botón \":actionText\", copia y pega la siguiente URL\n".
+    'en tu navegador web:',
     [
         'actionText' => $actionText,
     ]

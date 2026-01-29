@@ -58,14 +58,9 @@ Route::middleware(['auth', 'role:professional'])->prefix('/professional')->name(
 Route::view('/rol', 'Home.FormRol')->name('rol');
 Route::view('/registro-profesional', 'Home.FormProfessional')->name('formPro');
 Route::view('/registro-empresa', 'Home.FormBussines')->name('formBuss');
-
-
-
 Route::view('/notifications', 'Main.ViewNotification')->name('view.notifications');
 
 //EMPRESA
-
-
 Route::view('/detalles-trabajo', 'empresa.detallesTarea')->name('bussines.detalles');
 Route::view('/calificar', 'empresa.calificacion')->name('bussines.calificacion');
 Route::get('/profesionales', function () {

@@ -99,8 +99,9 @@ class RegisterController extends Controller
         $user = User::find($user->id);
         Auth::login($user);
 
-        #return redirect()->route('dashboard')->with('success', 'Registro profesional completado correctamente');
-        return redirect()->route('professional.notification');        
+        return redirect()
+    ->route('professional.notification')
+    ->with('welcome_professional', true);
     }
         
     public function storeCompany(Request $request, User $user)
@@ -134,7 +135,9 @@ class RegisterController extends Controller
             'completed' => true,
         ]);
 
-        return redirect()->route('company.tasks.index')->with('success', 'Registro de empresa completado correctamente');
+        return redirect()
+    ->route('company.tasks.index')
+    ->with('welcome_company', true);
         #return redirect()->route('company.create');
     }
     
