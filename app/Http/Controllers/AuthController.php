@@ -18,9 +18,10 @@ class AuthController extends Controller
         $user = Auth::user();
         
         return match ($user->role) {
-            'company'  => redirect()->route('company.tasks.create'),
+            'company' => redirect()->route('company.tasks.create'),
             'admin' => redirect()->route('admin.main'),
-            'professional'  => redirect()->route('professional.notification'),
+            'professional' => redirect()->route('professional.notification'),
+            'pending' => redirect()->route('register.role', ['user' => $user->id]),
             default => abort(403),
         };
     }
