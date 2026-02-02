@@ -71,8 +71,7 @@
                                 class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-danger btn-sm"
-                                        onclick="return confirm('¿Eliminar esta tarea?')">
+                                <button type="button" class="btn btn-danger btn-sm btn-delete">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
                             </form>
@@ -139,4 +138,29 @@ $(document).ready(function() {
     });
 </script>
 @endif
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.btn-delete').forEach(button => {
+        button.addEventListener('click', function () {
+            const form = this.closest('form');
+
+            Swal.fire({
+                title: '¿Eliminar tarea?',
+                text: 'Esta acción no se puede deshacer.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#dc3545',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Sí, eliminar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    });
+});
+</script>
 @endsection
