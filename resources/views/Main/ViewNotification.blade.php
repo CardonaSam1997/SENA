@@ -22,7 +22,7 @@
     width: 48px;
     height: 48px;
     border-radius: 10px;
-    background: #0d6efd; /* azul tareas */
+    background: #0d6efd;
     color: white;
     display: flex;
     align-items: center;
@@ -73,6 +73,26 @@
 
 @section('content')
 <div class="content container py-3">
+
+
+@foreach($notifications as $notification)
+<div class="task-card">
+    <div class="task-img bg-warning">
+        <i class="fas fa-clock"></i>
+    </div>
+
+    <div class="flex-grow-1 ms-3">
+        <div class="task-header">
+            <span class="task-title">{{ $notification->data['title'] }}</span>
+            <small>{{ $notification->created_at->format('d/m/Y') }}</small>
+        </div>
+
+        <p class="task-desc mb-0">
+            {{ $notification->data['message'] }}
+        </p>
+    </div>
+</div>
+@endforeach
 
   <!-- Notificación 1 -->
   <div class="task-card">
@@ -157,6 +177,5 @@
     });
 </script>
 @endif
-<!-- FontAwesome -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 @endsection
