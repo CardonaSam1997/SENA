@@ -44,8 +44,10 @@ class TaskController extends Controller
             'content'         => 'required|string',
             'area'            => 'required|string|max:255',
             'money'           => 'required|numeric|min:0',
-            'expiration_date' => 'required|date',
+            'expiration_date' => 'required|date|after_or_equal:today',
             'files.*'         => 'nullable|file|mimes:pdf|max:2048',
+        ], [
+            'expiration_date.after_or_equal' => 'La fecha de vencimiento debe ser mayor o igual a hoy.',
         ]);
 
         $storedFiles = [];
@@ -83,7 +85,9 @@ class TaskController extends Controller
 
             return redirect()
                 ->route('company.tasks.create')
-                ->with('success', 'Tarea creada correctamente');
+                ->with('success', 'Tarea creada correctamente')
+                ->with('task_created', $request->title);
+
 
         } catch (\Throwable $e) {
 

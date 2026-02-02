@@ -37,7 +37,7 @@
 
             <div class="col-md-6">
                 <label class="form-label">Fecha de vencimiento</label>
-                <input type="date" name="expiration_date" class="form-control" required>
+                <input type="date" name="expiration_date" class="form-control"  id="expiration_date" class="form-control" required>
             </div>
 
             <div class="col-md-3">
@@ -57,4 +57,52 @@
         </button>
     </form>
 </div>
+
+@if(session('success'))
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    Swal.fire({
+        icon: 'success',
+        title: '¡Tarea creada!',
+        text: 'La tarea "{{ session('task_created') }}" fue publicada correctamente.',
+        confirmButtonColor: '#0d6efd',
+        confirmButtonText: 'Perfecto',
+        timer: 4000,
+        showConfirmButton: false,
+        willClose: () => {
+            window.location.href = "{{ route('company.tasks.index') }}";
+        }
+    });
+});
+</script>
+@endif
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+    const dateInput = document.getElementById('expiration_date');
+
+    form.addEventListener('submit', function (e) {
+        const selectedDate = new Date(dateInput.value);
+        const today = new Date();
+        
+        today.setHours(0, 0, 0, 0);
+
+        if (selectedDate < today) {
+            e.preventDefault();
+
+            Swal.fire({
+                icon: 'warning',
+                title: 'Fecha inválida',
+                text: 'Debes seleccionar una fecha mayor a hoy.',
+                confirmButtonColor: '#0d6efd',
+                confirmButtonText: 'Entendido'
+            });
+        }
+    });
+});
+</script>
+
+
 @endsection
