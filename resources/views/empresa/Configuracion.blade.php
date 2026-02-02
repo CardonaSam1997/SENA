@@ -3,7 +3,7 @@
 @section('content')
 <div class="container py-5">
    <div class="row justify-content-center">
-    <h2 class="mb-4 text-primary fw-bold"><i class="fas fa-cog me-1"></i>Configuración cuenta</h2>
+    <h2 class="mb-4 text-primary fw-bold"><i class="fa-solid fa-circle-user"></i>Detalles del usuario</h2>
 
     {{-- Cambiar credenciales --}}  
     <div class="col-md-4 mb-4">
@@ -46,44 +46,38 @@
           <div class="card-body">
 
             <div class="mb-3">
-              <strong><i class="fas fa-id-card me-2 text-primary"></i> Nombre:</strong> Empresa Ejemplo S.A.S
+              <strong><i class="fas fa-id-card me-2 text-primary"></i> Nombre:</strong> {{ $company->name }}
             </div>
 
             <div class="mb-3">
-              <strong><i class="fas fa-hashtag me-2 text-primary"></i> NIT:</strong> 900123456-7
+              <strong><i class="fas fa-hashtag me-2 text-primary"></i> NIT:</strong> {{ $company->nit }}
             </div>
 
             <div class="mb-3">
-              <strong><i class="fas fa-map-marker-alt me-2 text-primary"></i> Dirección:</strong> Calle 123 #45-67, Bogotá
+              <strong><i class="fas fa-map-marker-alt me-2 text-primary"></i> Dirección:</strong> {{ $company->address }}
             </div>
 
             <div class="mb-3">
-              <strong><i class="fas fa-envelope me-2 text-primary"></i> Correo:</strong> contacto@empresa.com
+              <strong><i class="fas fa-envelope me-2 text-primary"></i> Correo:</strong> {{ $company->user->email }}
             </div>
 
             <div class="mb-3">
-              <strong><i class="fas fa-briefcase me-2 text-primary"></i> Tipos de servicio:</strong> 
-              Desarrollo de software, Instalación de redes, Soporte técnico
+              <strong><i class="fas fa-briefcase me-2 text-primary"></i> Tipos de servicio:</strong> {{ $company->service_type }}              
             </div>
 
             <div class="mb-3">
-              <strong><i class="fas fa-calendar-alt me-2 text-primary"></i> Fecha de registro:</strong> 20/08/2025
-            </div>
-
-            <div class="mb-3">
-              <strong><i class="fas fa-phone me-2 text-primary"></i> Celular:</strong> +57 300 123 4567
+              <strong><i class="fas fa-calendar-alt me-2 text-primary"></i> Fecha de registro:</strong> {{ optional($company->created_at)->format('d/m/Y') ?? 'No disponible' }}
             </div>
 
             <hr>
 
             <div class="mb-2">
-              <strong><i class="fas fa-user me-2 text-primary"></i> Registrado por:</strong> Juan Pérez
+              <strong><i class="fas fa-user me-2 text-primary"></i> Registrado por:</strong> {{ $company->user->username }}
             </div>
 
             <div>
-              <strong><i class="fas fa-user-tie me-2 text-primary"></i> Cargo:</strong> Administrador
+              <strong><i class="fas fa-user-tie me-2 text-primary"></i> Cargo:</strong> {{ ucfirst($company->user->role) }}
             </div>
-
           </div>
         </div>
       </div>

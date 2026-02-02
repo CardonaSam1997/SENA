@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\Company;
 use Illuminate\Http\Request;
 
@@ -35,8 +36,8 @@ class CompanyController extends Controller
      * Display the specified resource.
      */
     public function show(Company $company)
-    {
-        //
+    {       
+
     }
 
     /**
@@ -61,5 +62,13 @@ class CompanyController extends Controller
     public function destroy(Company $company)
     {
         //
+    }
+
+    public function configuracion()
+    {
+        $user = Auth::user();
+        $company = $user->company;
+
+        return view('empresa.configuracion', compact('company', 'user'));
     }
 }

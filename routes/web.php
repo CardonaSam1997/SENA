@@ -45,6 +45,7 @@ Route::middleware(['auth', 'role:company'])->prefix('/company')->name('company.'
     Route::delete('tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
     Route::get('/tasks/{task}/edit', [TaskController::class, 'edit'])->name('tasks.edit');   
     Route::put('/tasks/{task}', [TaskController::class, 'update'])->name('tasks.update');
+    Route::get('/configuracion', [CompanyController::class, 'configuracion'])->name('configuracion');
 });
 
 //PROFESSIONAL
@@ -78,7 +79,7 @@ Route::get('/profesionales/{id}', function ($id) {
 })->name('bussines.profesional.show');
 
 
-Route::view('/configuracion', 'empresa.configuracion')->name('bussines.configuracion');
+
 
 ##PROFESIONAL##
 Route::view('/professional/buscarTarea', 'Profesional.SearchTask')->name('professional.search');

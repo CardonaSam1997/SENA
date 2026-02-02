@@ -24,7 +24,7 @@
 </div>
 @endif
 <div class="container-fluid px-2 px-md-4">
-    <h2 class="mb-4 text-center text-md-start">Lista de Tareas</h2>
+    <h2 class="mb-4 text-primary fw-bold">Lista de Tareas</h2>
 
     <div class="table-responsive">
         <table id="tablaTareas" class="table table-bordered table-striped align-middle text-center w-100">
