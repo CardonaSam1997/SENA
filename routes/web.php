@@ -32,6 +32,10 @@ Route::prefix('register')->group(function () {
 });
 
 
+Route::middleware(['auth'])->group(function () {
+    Route::post('/user/change-password', [UserController::class, 'changePassword'])->name('user.change-password');
+});
+
 //ADMIN
 Route::middleware(['auth', 'role:admin'])->prefix('/admin')->name('admin.')->group(function () {            
     Route::view('/crear', 'empresa.prueba')->name('main');    
@@ -46,6 +50,7 @@ Route::middleware(['auth', 'role:company'])->prefix('/company')->name('company.'
     Route::get('/tasks/{task}/edit', [TaskController::class, 'edit'])->name('tasks.edit');   
     Route::put('/tasks/{task}', [TaskController::class, 'update'])->name('tasks.update');
     Route::get('/configuracion', [CompanyController::class, 'configuracion'])->name('configuracion');
+
 });
 
 //PROFESSIONAL

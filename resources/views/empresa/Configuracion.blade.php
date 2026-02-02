@@ -12,22 +12,31 @@
           <h5 class="mb-0"><i class="fas fa-key me-2"></i> Cambiar Credenciales</h5>
         </div>
         <div class="card-body">
-          <form>
+          <form method="POST" action="{{ route('user.change-password') }}">
+            @csrf
             <div class="mb-3">
-              <label for="password" class="form-label">
-                <i class="fas fa-lock me-2"></i> Contraseña
-              </label>
-              <input type="password" id="password" class="form-control" placeholder="Ingrese nueva contraseña">
+                <label class="form-label">Contraseña actual</label>
+                <input type="password" name="current_password" class="form-control" required>
             </div>
 
             <div class="mb-3">
-              <label for="passwordConfirm" class="form-label">
-                <i class="fas fa-lock me-2"></i> Confirmar contraseña
-              </label>
-              <input type="password" id="passwordConfirm" class="form-control" placeholder="Repita la contraseña">
+                <label class="form-label">Nueva contraseña</label>
+                <input type="password" id="password" name="password" class="form-control" required>
             </div>
 
-            <button type="submit" class="btn btn-success w-100">
+            <div class="mb-3">
+              <label class="form-label">Confirmar nueva contraseña</label>
+              <input type="password"
+                    id="password_confirmation"
+                    name="password_confirmation"
+                    class="form-control"
+                    required>
+              <div class="invalid-feedback">
+                  Las contraseñas no coinciden.
+              </div>
+            </div>
+
+            <button type="submit" id="btn-submit-password" class="btn btn-success w-100">
               <i class="fas fa-save me-2"></i> Guardar cambios
             </button>
           </form>
@@ -83,4 +92,70 @@
       </div>
     </div>
   </div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form[action="{{ route('user.change-password') }}"]');
+    const password = document.getElementById('password');
+    const confirmation = document.getElementById('password_confirmation');
+    const submitBtn = document.getElementById('btn-submit-password');
+
+    function validatePasswords() {
+        if (!password.value || !confirmation.value) {
+            submitBtn.disabled = true;
+            return;
+        }
+
+        if (password.value !== confirmation.value) {
+            confirmation.classList.add('is-invalid');
+            submitBtn.disabled = true;
+        } else {
+            confirmation.classList.remove('is-invalid');
+            submitBtn.disabled = false;
+        }
+    }
+
+    password.addEventListener('input', validatePasswords);
+    confirmation.addEventListener('input', validatePasswords);
+
+    form.addEventListener('submit', function (e) {
+        if (submitBtn.disabled) {
+            e.preventDefault();
+        }
+    });
+
+    submitBtn.disabled = true;
+});
+</script>
+
+
+  @if ($errors->any())
+    <script>
+      
+      document.addEventListener('DOMContentLoaded', function () {
+          Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              html: `{!! implode('<br>', $errors->all()) !!}`,
+              confirmButtonColor: '#dc3545',
+              confirmButtonText: 'Entendido'
+          });
+      });
+    </script>
+  @endif
+
+  @if(session('password_changed'))
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          Swal.fire({
+              icon: 'success',
+              title: 'Contraseña actualizada',
+              text: 'Tu contraseña se cambió correctamente.',
+              confirmButtonColor: '#198754',
+              confirmButtonText: 'Perfecto'
+          });
+      });
+    </script>
+  @endif
+
+
 @endsection

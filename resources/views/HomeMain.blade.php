@@ -45,7 +45,7 @@
         </nav>
 
         <div class="sidebar-footer mt-auto p-3 small">
-          <div>© {{ date('Y') }} Galaxia</div>
+          <div>© {{ date('Y') }} Sena</div>
         </div>
       </aside>
       
