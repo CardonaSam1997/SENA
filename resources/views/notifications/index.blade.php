@@ -9,22 +9,27 @@
 
 
   @foreach($notifications as $notification)
-  <div class="task-card">
-      <div class="task-img bg-warning">
-          <i class="fas fa-clock"></i>
-      </div>
+    @if($notification->read_at)
+        @php
+            continue;
+        @endphp
+    @endif
+    <div class="task-card">
+        <div class="task-img bg-warning">
+            <i class="fas fa-clock"></i>
+        </div>
 
-      <div class="flex-grow-1 ms-3">
-          <div class="task-header">
-              <span class="task-title">{{ $notification->data['title'] }}</span>
-              <small>{{ $notification->created_at->format('d/m/Y') }}</small>
-          </div>
+        <div class="flex-grow-1 ms-3">
+            <div class="task-header">
+                <span class="task-title">{{ $notification->data['title'] }}</span>
+                <small>{{ $notification->created_at->format('d/m/Y') }}</small>
+            </div>
 
-          <p class="task-desc mb-0">
-              {{ $notification->data['message'] }}
-          </p>
-      </div>
-  </div>
+            <p class="task-desc mb-0">
+                {{ $notification->data['message'] }}
+            </p>
+        </div>
+    </div>
   @endforeach
 
   <!-- Notificación 1 -->
