@@ -8,6 +8,14 @@
 <div class="content container py-3">
 
 
+
+  @foreach($notifications->whereNull('read_at') as $notification)
+      <x-notification-item :notification="$notification" />
+  @endforeach
+
+
+
+
   @foreach($notifications as $notification)
     @if($notification->read_at)
         @php
