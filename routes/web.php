@@ -7,6 +7,8 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\NotificationController;
+
 
 //PRINCIPAL
 Route::view('/', 'Home.Main')->name('pageMain');
@@ -34,6 +36,7 @@ Route::prefix('register')->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/user/change-password', [UserController::class, 'changePassword'])->name('user.change-password');
+    Route::get('/notificaciones', [NotificationController::class, 'index'])->name('notifications.index');
 });
 
 //ADMIN
@@ -55,7 +58,7 @@ Route::middleware(['auth', 'role:company'])->prefix('/company')->name('company.'
 
 //PROFESSIONAL
 Route::middleware(['auth', 'role:professional'])->prefix('/professional')->name('professional.')->group(function () {
-    Route::view('/notification', 'Main.ViewNotification')->name('notification');
+    //Route::view('/notification', 'Main.ViewNotification')->name('notification');
 });
 
 
@@ -64,7 +67,7 @@ Route::middleware(['auth', 'role:professional'])->prefix('/professional')->name(
 Route::view('/rol', 'Home.FormRol')->name('rol');
 Route::view('/registro-profesional', 'Home.FormProfessional')->name('formPro');
 Route::view('/registro-empresa', 'Home.FormBussines')->name('formBuss');
-Route::view('/notifications', 'Main.ViewNotification')->name('view.notifications');
+//Route::view('/notifications', 'Main.ViewNotification')->name('view.notifications');
 
 //EMPRESA
 Route::view('/detalles-trabajo', 'empresa.detallesTarea')->name('bussines.detalles');

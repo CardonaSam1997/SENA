@@ -9,32 +9,35 @@ use Carbon\Carbon;
 
 class NotifyTasksAboutToExpire extends Command
 {
-    protected $signature = 'tasks:notify-expiring';
+    protected $signature = 'tasks:check-expiring';
     protected $description = 'Notifica tareas que vencen en 3 días';
 
     public function handle()
     {
-        $targetDate = Carbon::now()->addDays(3)->startOfDay();
+        $today = Carbon::today();
+        $limit = Carbon::today()->addDays(3);
 
-        $tasks = Task::whereDate('due_date', $targetDate)
-            ->where('status', '!=', 'completed')
+        $tasks = Task::whereBetween('expiration_date', [$today, $limit])
+            ->where('enable', 1)
             ->get();
 
-        foreach ($tasks as $task) {
-
-            //Notificar a la empresa
-            if ($task->company && $task->company->user) {
-                $task->company->user
-                    ->notify(new TaskAboutToExpireNotification($task));
-            }
-
-            //Notificar al profesional asignado
-            if ($task->professional) {
-                $task->professional
-                    ->notify(new TaskAboutToExpireNotification($task));
-            }
+        if ($tasks->isEmpty()) {
+            $this->info('No hay tareas próximas a vencer.');
+            return;
         }
 
-        $this->info('Notificaciones enviadas correctamente.');
+        foreach ($tasks as $task) {
+            $user = $task->company->user;
+
+            $alreadyNotified = $user->notifications()
+                ->where('data->task_id', $task->id)
+                ->where('data->type', 'task_due_soon')
+                ->exists();
+
+            if (!$alreadyNotified) {
+                $user->notify(new TaskAboutToExpireNotification($task));
+                $this->info("Notificada tarea ID {$task->id} (vence {$task->expiration_date->format('Y-m-d')})");
+            }
+        }
     }
 }

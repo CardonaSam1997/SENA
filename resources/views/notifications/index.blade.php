@@ -1,98 +1,31 @@
 @extends('HomeMain')
 
 @section('styles')
-<style>
-  .task-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    display: flex;
-    align-items: flex-start;
-    transition: all 0.2s ease-in-out;
-  }
-
-  .task-card:hover {
-    transform: translateY(-2px);
-  }
-
-  .task-img {
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    border-radius: 10px;
-    background: #0d6efd;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-  }
-
-  .task-header {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-bottom: 6px;
-  }
-
-  .task-title {
-    font-weight: 600;
-    font-size: 1rem;
-    color: #212529;
-  }
-
-  .task-header small {
-    font-size: 0.8rem;
-    color: #6c757d;
-  }
-
-  .task-desc {
-    font-size: 0.9rem;
-    color: #495057;
-  }
-
-  /* Ajustes móviles */
-  @media (max-width: 576px) {
-    .task-card {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .task-img {
-      margin-bottom: 10px;
-    }
-    .task-header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 3px;
-    }
-  }
-</style>
+  <link rel="stylesheet" href="{{ asset('css/Notification.css') }}">
 @endsection
 
 @section('content')
 <div class="content container py-3">
 
 
-@foreach($notifications as $notification)
-<div class="task-card">
-    <div class="task-img bg-warning">
-        <i class="fas fa-clock"></i>
-    </div>
+  @foreach($notifications as $notification)
+  <div class="task-card">
+      <div class="task-img bg-warning">
+          <i class="fas fa-clock"></i>
+      </div>
 
-    <div class="flex-grow-1 ms-3">
-        <div class="task-header">
-            <span class="task-title">{{ $notification->data['title'] }}</span>
-            <small>{{ $notification->created_at->format('d/m/Y') }}</small>
-        </div>
+      <div class="flex-grow-1 ms-3">
+          <div class="task-header">
+              <span class="task-title">{{ $notification->data['title'] }}</span>
+              <small>{{ $notification->created_at->format('d/m/Y') }}</small>
+          </div>
 
-        <p class="task-desc mb-0">
-            {{ $notification->data['message'] }}
-        </p>
-    </div>
-</div>
-@endforeach
+          <p class="task-desc mb-0">
+              {{ $notification->data['message'] }}
+          </p>
+      </div>
+  </div>
+  @endforeach
 
   <!-- Notificación 1 -->
   <div class="task-card">

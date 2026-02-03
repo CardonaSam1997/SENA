@@ -61,12 +61,12 @@
 
           <div class="d-flex align-items-center position-relative">
             @if (request()->segment(1) == 'professional')
-              <a href="{{ route('professional.notification') }}" class="me-3 position-relative text-decoration-none text-dark">
+              <a href="{{ route('notifications.index') }}" class="me-3 position-relative text-decoration-none text-dark">
                 <i class="fas fa-bell text-warning fs-5"></i>
                 <span class="notification-dot"></span>
               </a>
             @else
-              <a href="{{ route('view.notifications') }}" class="me-3 position-relative text-decoration-none text-dark">
+              <a href="{{ route('notifications.index') }}" class="me-3 position-relative text-decoration-none text-dark">
                 <i class="fas fa-bell text-warning fs-5"></i>
                 <span class="notification-dot"></span>
               </a>

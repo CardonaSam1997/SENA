@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use App\Models\Task;
 
 class TaskAboutToExpireNotification extends Notification
 {
@@ -15,7 +16,7 @@ class TaskAboutToExpireNotification extends Notification
 
     public function via($notifiable)
     {
-        return ['database']; // Solo notificación en base de datos
+        return ['database']; 
     }
 
     public function toDatabase($notifiable)
@@ -23,19 +24,10 @@ class TaskAboutToExpireNotification extends Notification
         return [
             'type' => 'task_due_soon',
             'title' => 'Tarea próxima a vencer',
-            'message' => "La tarea \"{$this->task->title}\" vence el {$this->task->due_date->format('d/m/Y')}.",
+            'message' => "La tarea \"{$this->task->title}\" vence el " .optional($this->task->expiration_date)->format('d/m/Y'),
             'task_id' => $this->task->id,
-            'due_date' => $this->task->due_date,
+            'expiration_date' => $this->task->expiration_date,
         ];
     }
 
-    public function notifications()
-    {
-        $notifications = auth()->user()->notifications;
-
-        return view('notifications.index', compact('notifications'));
-    }
-
 }
-
-/**as */
