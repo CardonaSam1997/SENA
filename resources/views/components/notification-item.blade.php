@@ -8,11 +8,14 @@
         'task_due_soon' => ['icon' => 'fa-clock', 'bg' => 'bg-warning'],
         'task_completed' => ['icon' => 'fa-check-circle', 'bg' => 'bg-success'],
         'task_suggestion' => ['icon' => 'fa-comment-dots', 'bg' => 'bg-info'],
+        'task_access_request' => ['icon' => 'fa-door-open', 'bg' => 'bg-danger'],
         default => ['icon' => 'fa-bell', 'bg' => 'bg-secondary'],
     };
 @endphp
 
-<div class="task-card">
+<a href="{{ route('notifications.show', $notification->id) }}"
+   class="task-card text-decoration-none text-dark">
+
     <div class="task-img {{ $config['bg'] }}">
         <i class="fas {{ $config['icon'] }}"></i>
     </div>
@@ -27,4 +30,5 @@
             {{ $notification->data['message'] }}
         </p>
     </div>
-</div>
+
+</a>

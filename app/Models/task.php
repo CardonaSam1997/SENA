@@ -31,4 +31,9 @@ class Task extends Model
     {
         return $this->hasMany(File::class);
     }
+
+    public function applyTasks()
+{
+    return $this->hasMany(ApplyTask::class);
+}
 }

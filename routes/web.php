@@ -39,6 +39,7 @@ Route::prefix('register')->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::post('/user/change-password', [UserController::class, 'changePassword'])->name('user.change-password');
     Route::get('/notificaciones', [NotificationController::class, 'index'])->name('notifications.index');
+    Route::get('/notifications/{notification}', [NotificationController::class, 'show'])->name('notifications.show');
 });
 
 
