@@ -36,7 +36,7 @@ class ProfessionalController extends Controller
      */
     public function show(Professional $professional)
     {
-        //
+        return view('professionals.show', compact('professional'));
     }
 
     /**

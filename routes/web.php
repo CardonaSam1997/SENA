@@ -9,6 +9,8 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\ProfessionalController;
+use App\Http\Controllers\ApplyTaskController;
 
 
 //PRINCIPAL
@@ -53,8 +55,11 @@ Route::middleware(['auth', 'role:company'])->prefix('/company')->name('company.'
     Route::put('/tasks/{task}', [TaskController::class, 'update'])->name('tasks.update');
     Route::get('/configuracion', [CompanyController::class, 'configuracionView'])->name('configuracion');
     Route::delete('/tasks/files/{file}',[FileController::class, 'destroy'])->name('tasks.files.destroy');
+    Route::post('/tasks/{task}/authorize/{professional}',[ApplyTaskController::class, 'authorize'])->name('apply-tasks.authorize');
+    
+    Route::get('/professionals/{professional}', [ProfessionalController::class, 'show'])->name('professionals.show');
 });
-
+    
 
 //ADMIN
 Route::middleware(['auth', 'role:admin'])->prefix('/admin')->name('admin.')->group(function () {            
