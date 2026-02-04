@@ -127,11 +127,11 @@ class TaskController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, Task $task)
-    {        
+    {
         if ($task->company_id !== Auth::user()->company->id) {
-            abort(403, 'No autorizado');
+            abort(403);
         }
-     
+
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'money' => 'required|numeric|min:0',
@@ -139,13 +139,28 @@ class TaskController extends Controller
             'area' => 'required|string',
             'expiration_date' => 'required|date',
         ]);
-        
+
         $task->update($validated);
 
-        return redirect()
-            ->route('company.tasks.index')
-            ->with('success', 'Tarea actualizada correctamente');
+        if ($request->hasFile('files')) {
+            foreach ($request->file('files') as $file) {
+                $path = $file->store('tasks/' . $task->id, 'public');
+
+                $task->files()->create([
+                    'path' => $path,
+                ]);
+            }
+        }
+
+        // 🔑 volver a cargar archivos
+        $task->load('files');
+
+        return view('empresa.task.editTask', [
+            'task' => $task,
+            'updated' => true,
+        ]);
     }
+
 
 
     /**

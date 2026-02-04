@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
@@ -60,6 +61,13 @@ class FileController extends Controller
      */
     public function destroy(File $file)
     {
-        //
+        if ($file->task->company_id !== auth()->user()->company->id) {
+            abort(403);
+        }
+
+        Storage::disk('public')->delete($file->path);
+        $file->delete();
+
+        return back()->with('success', 'Archivo eliminado');
     }
 }

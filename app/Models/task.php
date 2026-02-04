@@ -18,7 +18,6 @@ class Task extends Model
         'expiration_date',
     ];
 
-   
     protected $casts = [
         'expiration_date' => 'date',
     ];
@@ -28,9 +27,8 @@ class Task extends Model
         return $this->belongsTo(Company::class);
     }
 
-     public function files()
+    public function files()
     {
         return $this->hasMany(File::class);
     }
-
 }

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2 class="mb-4 text-center text-md-start">Editar tarea</h2>
+    <h2 class="mb-4 text-primary fw-bold">Editar información</h2>
 
     <form action="{{ route('company.tasks.update', $task) }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -43,21 +43,7 @@
                 <input type="date" name="expiration_date" class="form-control"
                        value="{{ old('expiration_date', $task->expiration_date) }}" required>
             </div>
-        </div>
-
-
-        @if($task->files->count())
-            <div class="mb-3">
-                <label class="form-label">Archivos actuales</label>
-                <ul class="list-group">
-                    @foreach($task->files as $file)
-                        <li class="list-group-item">
-                            {{ $file->name }}
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        </div>       
 
         <div class="mb-3">
             <label class="form-label">Agregar archivos (PDF)</label>
@@ -74,5 +60,59 @@
             Guardar cambios
         </button>
     </form>
+
+    @if($task->files->count())
+    <br>    
+    <label class="form-label">Archivos actuales</label>
+    <hr>
+        <div class="mb-3">
+            <ul class="list-group">
+                @foreach($task->files as $file)
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="{{ asset('storage/'.$file->path) }}" target="_blank">
+                            {{ basename($file->path) }}
+                        </a>
+                        <button
+                            type="button"
+                            class="btn btn-sm btn-danger"
+                            onclick="confirmDelete({{ $file->id }})">
+                            ✕
+                        </button>
+                        <form id="delete-file-{{ $file->id }}"
+                            action="{{ route('company.tasks.files.destroy', $file) }}"
+                            method="POST" class="d-none">
+                            @csrf
+                            @method('DELETE')
+                        </form>
+                    </li>
+                @endforeach
+            </ul>
+        </div>        
+        <hr>
+    @endif
 </div>
+
+
+
+
+<script>
+    function confirmDelete(fileId) {
+        Swal.fire({
+            title: '¿Eliminar archivo?',
+            text: 'Este archivo se eliminará permanentemente.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#6c757d',
+            confirmButtonText: 'Sí, eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('delete-file-' + fileId).submit();
+            }
+        });
+    }
+</script>
+
+
 @endsection

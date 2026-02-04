@@ -8,25 +8,26 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\FileController;
 
 
 //PRINCIPAL
 Route::view('/', 'Home.Main')->name('pageMain');
 
+//AUTH
 Route::get('/login', [UserController::class, 'indexLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
-
 Route::get('/forgot-password', [RecoveryPasswordController::class, 'showForgotForm'])->name('password.request');
 Route::post('/forgot-password', [RecoveryPasswordController::class, 'sendResetLink'])->name('password.email');
 Route::get('/reset-password/{token}', [RecoveryPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('/reset-password', [RecoveryPasswordController::class, 'resetPassword'])->name('password.update');
 
+//REGISTRO
 Route::prefix('register')->group(function () {
     Route::view('/', 'Home.FormRegister')->name('registro');
     Route::post('/', [UserController::class, 'store'])->name('register.store');    
-
-    Route::get('/role/{user}', [RegisterController::class, 'selectRole'])->name('register.role');    
     // Formularios de rol
+    Route::get('/role/{user}', [RegisterController::class, 'selectRole'])->name('register.role');    
     Route::get('/professional/{user}', [RegisterController::class, 'formProfessional'])->name('register.professional.form');
     Route::post('/professional/{user}', [RegisterController::class, 'storeProfessional'])->name('register.professional.store');
     Route::get('/company/{user}', [RegisterController::class, 'formCompany'])->name('register.company.form');
@@ -34,15 +35,12 @@ Route::prefix('register')->group(function () {
 });
 
 
+//USER AUTH
 Route::middleware(['auth'])->group(function () {
     Route::post('/user/change-password', [UserController::class, 'changePassword'])->name('user.change-password');
     Route::get('/notificaciones', [NotificationController::class, 'index'])->name('notifications.index');
 });
 
-//ADMIN
-Route::middleware(['auth', 'role:admin'])->prefix('/admin')->name('admin.')->group(function () {            
-    Route::view('/crear', 'empresa.prueba')->name('main');    
-});
 
 //COMPANY
 Route::middleware(['auth', 'role:company'])->prefix('/company')->name('company.')->group(function () {
@@ -53,13 +51,26 @@ Route::middleware(['auth', 'role:company'])->prefix('/company')->name('company.'
     Route::get('/tasks/{task}/edit', [TaskController::class, 'edit'])->name('tasks.edit');   
     Route::put('/tasks/{task}', [TaskController::class, 'update'])->name('tasks.update');
     Route::get('/configuracion', [CompanyController::class, 'configuracion'])->name('configuracion');
+    Route::delete('/tasks/files/{file}',[FileController::class, 'destroy'])->name('tasks.files.destroy');
+});
 
+
+//ADMIN
+Route::middleware(['auth', 'role:admin'])->prefix('/admin')->name('admin.')->group(function () {            
+    Route::view('/crear', 'empresa.prueba')->name('main');    
 });
 
 //PROFESSIONAL
 Route::middleware(['auth', 'role:professional'])->prefix('/professional')->name('professional.')->group(function () {
     //Route::view('/notification', 'Main.ViewNotification')->name('notification');
 });
+
+
+
+
+
+
+
 
 
 #Route::get('/user', fn () => view('user.dashboard'))->name('user.dashboard');
@@ -85,14 +96,9 @@ Route::get('/profesionales/{id}', function ($id) {
     $yaCalificado = $profesional->calificacion !== null;
     return view('empresa.PerfilProfesional', compact('profesional', 'yaCalificado'));
 })->name('bussines.profesional.show');
-
-
-
-
 ##PROFESIONAL##
 Route::view('/professional/buscarTarea', 'Profesional.SearchTask')->name('professional.search');
 Route::view('/professional/configuracion', 'Profesional.PendingTasks')->name('professional.pendingTasks');
-
 Route::view('/professional/PendingTask', 'Profesional.ViewDetails')->name('professional.configuracion');
 
 //moderador

@@ -12,4 +12,10 @@ class File extends Model
     {
         return $this->belongsTo(Task::class);
     }
+
+    // helper útil
+    public function getUrlAttribute()
+    {
+        return Storage::disk('public')->url($this->path);
+    }
 }

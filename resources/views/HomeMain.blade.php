@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     @yield('styles')
     <link rel="stylesheet" href="{{ asset('css/HomeMain.css') }}">
-    <!-- Sweet alert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>    
+    <!-- Sweet alert -->    
   </head>
   <body>
 
@@ -111,5 +110,23 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('js/HomeMainSideBar.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if(!empty($updated))
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        Swal.fire({
+            icon: 'success',
+            title: 'Tarea actualizada',
+            text: 'La tarea "{{ $task->title }}" fue actualizada correctamente.',
+            confirmButtonText: 'Aceptar'
+        }).then(() => {
+            window.location.href = "{{ route('company.tasks.index') }}";
+        });
+    });
+</script>
+@endif
+
+    
   </body>
 </html>
