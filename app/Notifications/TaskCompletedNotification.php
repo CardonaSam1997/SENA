@@ -22,10 +22,9 @@ class TaskCompletedNotification extends Notification
     {
         return [
             'type' => 'task_completed',
-            'task_id' => $this->task->id,
             'title' => 'Tarea completada',
-            'message' => "La tarea \"{$this->task->title}\" fue completada exitosamente en el área de {$this->task->area}.",
-            'state' => $this->task->state,
+            'message' => "La tarea \"{$this->task->title}\" fue completada exitosamente.",
+            'task_id' => $this->task->id            
         ];
     }
 }

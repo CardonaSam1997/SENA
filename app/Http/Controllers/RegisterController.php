@@ -100,7 +100,7 @@ class RegisterController extends Controller
         Auth::login($user);
 
         return redirect()
-    ->route('professional.notification')
+    ->route('notifications.index')
     ->with('welcome_professional', true);
     }
         

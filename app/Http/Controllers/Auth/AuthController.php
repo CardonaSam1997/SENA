@@ -21,7 +21,7 @@ class AuthController extends Controller
         return match ($user->role) {
             'company' => redirect()->route('company.tasks.create'),
             'admin' => redirect()->route('admin.main'),
-            'professional' => redirect()->route('professional.notification'),
+            'professional' => redirect()->route('notifications.index'),
             'pending' => redirect()->route('register.role', ['user' => $user->id]),
             default => abort(403),
         };

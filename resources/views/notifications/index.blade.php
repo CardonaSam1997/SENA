@@ -16,30 +16,6 @@
 
 
 
-  @foreach($notifications as $notification)
-    @if($notification->read_at)
-        @php
-            continue;
-        @endphp
-    @endif
-    <div class="task-card">
-        <div class="task-img bg-warning">
-            <i class="fas fa-clock"></i>
-        </div>
-
-        <div class="flex-grow-1 ms-3">
-            <div class="task-header">
-                <span class="task-title">{{ $notification->data['title'] }}</span>
-                <small>{{ $notification->created_at->format('d/m/Y') }}</small>
-            </div>
-
-            <p class="task-desc mb-0">
-                {{ $notification->data['message'] }}
-            </p>
-        </div>
-    </div>
-  @endforeach
-
   <!-- Notificación 1 -->
   <div class="task-card">
     <div class="task-img">
@@ -56,38 +32,7 @@
     </div>
   </div>
 
-  <!-- Notificación 2 -->
-  <div class="task-card">
-    <div class="task-img bg-warning">
-      <i class="fas fa-clock"></i>
-    </div>
-    <div class="flex-grow-1 ms-3">
-      <div class="task-header">
-        <span class="task-title">Tarea próxima a vencer</span>
-        <small>02/09/2025</small>
-      </div>
-      <p class="task-desc mb-0">
-        La tarea <strong>"Desarrollo de API"</strong> vence el <strong>20/08/2025</strong>. Recuerda avanzar en el área de <em>Sistemas</em>.
-      </p>
-    </div>
-  </div>
-
-  <!-- Notificación 3 -->
-  <div class="task-card">
-    <div class="task-img bg-success">
-      <i class="fas fa-check-circle"></i>
-    </div>
-    <div class="flex-grow-1 ms-3">
-      <div class="task-header">
-        <span class="task-title">Tarea completada</span>
-        <small>01/09/2025</small>
-      </div>
-      <p class="task-desc mb-0">
-        La tarea <strong>"Campaña de Marketing"</strong> fue entregada exitosamente en el área de <em>Marketing</em>.
-      </p>
-    </div>
-  </div>
-
+ 
 </div>
 
 @if(session('welcome_professional'))

@@ -2,18 +2,20 @@
 
 namespace App\Notifications;
 
-use Illuminate\Bus\Queueable;
 use App\Models\Professional;
 use App\Models\Task;
+use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 
-class TaskSuggestionNotification extends Notification
+class TaskAccessRequestNotification extends Notification
 {
+    use Queueable;
+
     public function __construct(
         public Task $task,
-        public string $suggestion,
         public Professional $professional
-    ) {}
+    ) {
+    }
 
     public function via($notifiable)
     {
@@ -23,10 +25,11 @@ class TaskSuggestionNotification extends Notification
     public function toDatabase($notifiable)
     {
         return [
-            'type' => 'task_suggestion',
+            'type' => 'task_access_request',
             'task_id' => $this->task->id,
-            'title' => 'Nueva sugerencia recibida',
-            'message' => "{$this->professional->name} envió una sugerencia para la tarea \"{$this->task->title}\".",
+            'professional_id' => $this->professional->id,
+            'title' => 'Solicitud de acceso a la tarea',
+            'message' => "{$this->professional->name} solicitó permiso para acceder a la tarea \"{$this->task->title}\".",
         ];
     }
 }

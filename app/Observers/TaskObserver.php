@@ -13,16 +13,17 @@ class TaskObserver
             $task->wasChanged('state') &&
             $task->state === 'finalizada'
         ) {
-            $professional = $task->professional;
+            $company = $task->company;
+            $user = $company?->user;
 
             if (
-                $professional &&
-                !$professional->notifications()
+                $user &&
+                !$user->notifications()
                     ->where('data->type', 'task_completed')
                     ->where('data->task_id', $task->id)
                     ->exists()
             ) {
-                $professional->notify(
+                $user->notify(
                     new TaskCompletedNotification($task)
                 );
             }
