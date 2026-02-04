@@ -50,7 +50,7 @@ Route::middleware(['auth', 'role:company'])->prefix('/company')->name('company.'
     Route::delete('tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
     Route::get('/tasks/{task}/edit', [TaskController::class, 'edit'])->name('tasks.edit');   
     Route::put('/tasks/{task}', [TaskController::class, 'update'])->name('tasks.update');
-    Route::get('/configuracion', [CompanyController::class, 'configuracion'])->name('configuracion');
+    Route::get('/configuracion', [CompanyController::class, 'configuracionView'])->name('configuracion');
     Route::delete('/tasks/files/{file}',[FileController::class, 'destroy'])->name('tasks.files.destroy');
 });
 

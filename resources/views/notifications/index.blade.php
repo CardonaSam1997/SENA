@@ -14,8 +14,6 @@
   @endforeach
 
 
-
-
   <!-- Notificación 1 -->
   <div class="task-card">
     <div class="task-img">

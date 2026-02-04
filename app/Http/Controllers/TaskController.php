@@ -151,10 +151,8 @@ class TaskController extends Controller
                 ]);
             }
         }
-
-        // 🔑 volver a cargar archivos
+        
         $task->load('files');
-
         return view('empresa.task.editTask', [
             'task' => $task,
             'updated' => true,

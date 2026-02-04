@@ -64,11 +64,10 @@ class CompanyController extends Controller
         //
     }
 
-    public function configuracion()
+    public function configuracionView()
     {
         $user = Auth::user();
         $company = $user->company;
-
-        return view('empresa.configuracion', compact('company', 'user'));
+        return view('empresa.configuracion.index', compact('company', 'user'));
     }
 }
