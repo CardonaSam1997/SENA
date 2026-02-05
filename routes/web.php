@@ -13,6 +13,7 @@ use App\Http\Controllers\ProfessionalController;
 use App\Http\Controllers\ApplyTaskController;
 
 
+
 //PRINCIPAL
 Route::view('/', 'Home.Main')->name('pageMain');
 
@@ -55,8 +56,7 @@ Route::middleware(['auth', 'role:company'])->prefix('/company')->name('company.'
     Route::put('/tasks/{task}', [TaskController::class, 'update'])->name('tasks.update');
     Route::get('/configuracion', [CompanyController::class, 'configuracionView'])->name('configuracion');
     Route::delete('/tasks/files/{file}',[FileController::class, 'destroy'])->name('tasks.files.destroy');
-    Route::post('/tasks/{task}/authorize/{professional}',[ApplyTaskController::class, 'authorize'])->name('apply-tasks.authorize');
-    
+    Route::post('/tasks/{task}/authorize/{professional}',[ApplyTaskController::class, 'authorize'])->name('apply-tasks.authorize');    
     Route::get('/professionals/{professional}', [ProfessionalController::class, 'show'])->name('professionals.show');
 });
     
@@ -68,7 +68,10 @@ Route::middleware(['auth', 'role:admin'])->prefix('/admin')->name('admin.')->gro
 
 //PROFESSIONAL
 Route::middleware(['auth', 'role:professional'])->prefix('/professional')->name('professional.')->group(function () {
-    //Route::view('/notification', 'Main.ViewNotification')->name('notification');
+    //Route::view('/notification', 'Main.ViewNotification')->name('notification');    
+    Route::get('/tasks', [TaskController::class, 'indexProfessional'])->name('tasks.index');
+    Route::post('/tasks/{task}/apply', [ApplyTaskController::class, 'store'])
+            ->name('tasks.apply');
 });
 
 
@@ -103,9 +106,9 @@ Route::get('/profesionales/{id}', function ($id) {
     return view('empresa.PerfilProfesional', compact('profesional', 'yaCalificado'));
 })->name('bussines.profesional.show');
 ##PROFESIONAL##
-Route::view('/professional/buscarTarea', 'Profesional.SearchTask')->name('professional.search');
-Route::view('/professional/configuracion', 'Profesional.PendingTasks')->name('professional.pendingTasks');
-Route::view('/professional/PendingTask', 'Profesional.ViewDetails')->name('professional.configuracion');
+Route::view('/professional/buscarTarea', 'professionals.SearchTask')->name('professional.search');
+Route::view('/professional/configuracion', 'professionals.PendingTasks')->name('professional.pendingTasks');
+Route::view('/professional/PendingTask', 'professionals.ViewDetails')->name('professional.configuracion');
 
 //moderador
 Route::view('/moderador','Moderador.GestionUsuarios');

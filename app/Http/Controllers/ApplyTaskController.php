@@ -6,6 +6,7 @@ use App\Models\ApplyTask;
 use Illuminate\Http\Request;
 use App\Models\Task;
 use App\Models\Professional;
+use Illuminate\Support\Facades\Auth;
 
 class ApplyTaskController extends Controller
 {
@@ -46,9 +47,22 @@ class ApplyTaskController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+     public function store(Task $task)
     {
-        //
+        $professionalId = Auth::user()->professional->id;
+
+        ApplyTask::firstOrCreate(
+            [
+                'professional_id' => $professionalId,
+                'task_id' => $task->id,
+            ],
+            [
+                'authorization' => false,
+                'score' => 0,
+            ]
+        );
+
+        return back()->with('success', 'Aplicación enviada correctamente');
     }
 
     /**

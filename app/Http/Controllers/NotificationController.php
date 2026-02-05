@@ -9,10 +9,10 @@ use App\Models\ApplyTask;
 use App\Models\Professional;
 
 class NotificationController extends Controller{
-    public function index()
+  
+public function index()
     {
         $notifications = auth()->user()->notifications;
-
         return view('notifications.index', compact('notifications'));
     }
 

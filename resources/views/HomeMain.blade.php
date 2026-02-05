@@ -1,3 +1,8 @@
+@php
+  $role = auth()->user()->role;
+@endphp
+
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -18,30 +23,33 @@
           <a href="#" id="toggle-btn" class="text-white text-decoration-none d-flex align-items-center">
             <i class="fas fa-bars me-2"></i>
             <span class="sidebar-title">Menú</span>
-          </a>
-          
+          </a>          
         </div>
 
         <nav class="nav flex-column px-2">
-          @if (request()->segment(1) == 'professional')
-            <a href="{{ route('professional.search') }}" class="nav-link text-white py-2"><i class="fas fa-search me-2"></i><span class="link-text">Buscar Tarea</span></a>
-            <a href="{{ route('professional.pendingTasks') }}" class="nav-link text-white py-2"><i class="fas fa-tasks me-2"></i><span class="link-text">Listar trabajos</span></a>
-            <a href="{{ route('professional.configuracion') }}" class="nav-link text-white py-2"><i class="fas fa-cog me-2"></i><span class="link-text">Configuración</span></a>
-          @else
-            <a href="{{ route('company.tasks.create') }}" class="nav-link text-white py-2">
-              <i class="fas fa-plus-circle me-2"></i>
-              <span class="link-text">Publicar tarea</span>
-            </a>
-            <a href="{{ route('company.tasks.index') }}" class="nav-link text-white py-2">
-              <i class="fas fa-tasks me-2"></i>
-              <span class="link-text">Ver tareas</span>
-            </a>            
-            <a href="{{ route('company.configuracion') }}" class="nav-link text-white py-2">
-              <i class="fas fa-cog me-2"></i>
-              <span class="link-text">Configuración</span>
-            </a>
-          @endif
-        </nav>
+        @if ($role === 'professional')
+          <a href="{{ route('professional.tasks.index') }}" class="nav-link text-white py-2">
+            <i class="fas fa-search me-2"></i> Buscar Tarea
+          </a>
+          <a href="{{ route('professional.pendingTasks') }}" class="nav-link text-white py-2">
+            <i class="fas fa-tasks me-2"></i> Listar trabajos
+          </a>
+          <a href="{{ route('professional.configuracion') }}" class="nav-link text-white py-2">
+            <i class="fas fa-cog me-2"></i> Configuración
+          </a>
+        @elseif ($role === 'company')
+          <a href="{{ route('company.tasks.create') }}" class="nav-link text-white py-2">
+            <i class="fas fa-plus-circle me-2"></i> Publicar tarea
+          </a>
+          <a href="{{ route('company.tasks.index') }}" class="nav-link text-white py-2">
+            <i class="fas fa-tasks me-2"></i> Ver tareas
+          </a>
+          <a href="{{ route('company.configuracion') }}" class="nav-link text-white py-2">
+            <i class="fas fa-cog me-2"></i> Configuración
+          </a>
+        @endif
+      </nav>
+
 
         <div class="sidebar-footer mt-auto p-3 small">
           <div>© {{ date('Y') }} Sena</div>
@@ -90,43 +98,50 @@
       </div>
     </div>
     
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
-      <div class="offcanvas-header">
-        <h5 id="mobileSidebarLabel">Menú</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
-      </div>
-      <div class="offcanvas-body">
-        @if (request()->segment(1) == 'professional')
-          <a href="{{ route('professional.search') }}" class="nav-link mb-2"><i class="fas fa-search me-2"></i>Buscar Tarea</a>
-          <a href="{{ route('professional.pendingTasks') }}" class="nav-link mb-2"><i class="fas fa-tasks me-2"></i>Listar trabajos</a>
-          <a href="{{ route('professional.configuracion') }}" class="nav-link mb-2"><i class="fas fa-cog me-2"></i>Configuración</a>
-        @else
-          <a href="{{ route('company.tasks.create') }}" class="nav-link mb-2"><i class="fas fa-plus-circle me-2"></i>Publicar tarea</a>
-          <a href="{{ route('company.tasks.index') }}" class="nav-link mb-2"><i class="fas fa-tasks me-2"></i>Ver tareas</a>
-          <a href="{{ route('company.configuracion') }}" class="nav-link mb-2"><i class="fas fa-cog me-2"></i>Configuración</a>
+      <!-- MOBIL -->
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
+        @if ($role === 'professional')
+          <a href="{{ route('professional.tasks.index') }}" class="nav-link mb-2">
+            <i class="fas fa-search me-2"></i> Buscar Tarea
+          </a>
+          <a href="{{ route('professional.pendingTasks') }}" class="nav-link mb-2">
+            <i class="fas fa-tasks me-2"></i> Listar trabajos
+          </a>
+          <a href="{{ route('professional.configuracion') }}" class="nav-link mb-2">
+            <i class="fas fa-cog me-2"></i> Configuración
+          </a>
+        @elseif ($role === 'company')
+          <a href="{{ route('company.tasks.create') }}" class="nav-link mb-2">
+            <i class="fas fa-plus-circle me-2"></i> Publicar tarea
+          </a>
+          <a href="{{ route('company.tasks.index') }}" class="nav-link mb-2">
+            <i class="fas fa-tasks me-2"></i> Ver tareas
+          </a>
+          <a href="{{ route('company.configuracion') }}" class="nav-link mb-2">
+            <i class="fas fa-cog me-2"></i> Configuración
+          </a>
         @endif
-      </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      </div>      
+      
     <script src="{{ asset('js/HomeMainSideBar.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-@if(!empty($updated))
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        Swal.fire({
-            icon: 'success',
-            title: 'Tarea actualizada',
-            text: 'La tarea "{{ $task->title }}" fue actualizada correctamente.',
-            confirmButtonText: 'Aceptar'
-        }).then(() => {
-            window.location.href = "{{ route('company.tasks.index') }}";
-        });
-    });
-</script>
-@endif
-
     
+    @if(!empty($updated))
+      <script>
+          document.addEventListener('DOMContentLoaded', function () {
+              Swal.fire({
+                  icon: 'success',
+                  title: 'Tarea actualizada',
+                  text: 'La tarea "{{ $task->title }}" fue actualizada correctamente.',
+                  confirmButtonText: 'Aceptar'
+              }).then(() => {
+                  window.location.href = "{{ route('company.tasks.index') }}";
+              });
+          });
+      </script>
+    @endif
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a2e0d5f5b9.js" crossorigin="anonymous"></script>
   </body>
 </html>

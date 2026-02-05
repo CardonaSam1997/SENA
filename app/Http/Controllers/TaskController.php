@@ -13,6 +13,19 @@ class TaskController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+     public function indexProfessional()
+    {
+        $tasks = Task::where('enable', true)
+            ->where('state', 'pendiente')
+            ->whereDate('expiration_date', '>=', now())
+            ->latest()
+            ->get();
+
+        return view('professionals.tasks.index', compact('tasks'));
+    }
+
+
    public function index()
     {
         $company = Auth::user()->company;
