@@ -7,11 +7,6 @@ class Kernel extends ConsoleKernel
 {    
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('tasks:check-expiring')->daily();
+        $schedule->command('tasks:check-expiring')->twiceDaily(7, 17);
     }
 }
-
-/**
- * en producion ejecutar el comando de laravel scheduler:
- * php artisan schedule:work
-*/
