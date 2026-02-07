@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\RecoveryPasswordController;
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\RegisterController;
@@ -11,7 +12,6 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\ProfessionalController;
 use App\Http\Controllers\ApplyTaskController;
-
 
 
 //PRINCIPAL

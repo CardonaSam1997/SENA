@@ -42,14 +42,12 @@ class TaskController extends Controller
      */
     public function create()
     {
-        return view('empresa.crearTarea');
+        return view('empresa.CrearTarea');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-  
-
     public function store(Request $request)
     {        
         $request->validate([
@@ -132,7 +130,7 @@ class TaskController extends Controller
 
         $task->load('files');
 
-        return view('empresa.task.editTask', compact('task'));
+        return view('empresa.task.EditTask', compact('task'));
     }
 
 
@@ -166,7 +164,7 @@ class TaskController extends Controller
         }
         
         $task->load('files');
-        return view('empresa.task.editTask', [
+        return view('empresa.task.EditTask', [
             'task' => $task,
             'updated' => true,
         ]);

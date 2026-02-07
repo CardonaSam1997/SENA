@@ -12,7 +12,7 @@ class RecoveryPasswordController extends Controller
 
     public function showResetForm(string $token)
     {
-        return view('auth.reset-password', [
+        return view('Auth.reset-password', [
             'token' => $token
         ]);
     }
