@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class File extends Model
 {
@@ -14,8 +15,11 @@ class File extends Model
     }
 
     // helper útil
-    public function getUrlAttribute()
+    public function getUrlAttribute(): string
     {
-        return Storage::disk('public')->url($this->path);
+        /** @var FilesystemAdapter $disk */
+        $disk = Storage::disk('public');
+
+        return $disk->url($this->path);
     }
 }
