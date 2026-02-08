@@ -14,7 +14,7 @@ class ApplyTaskController extends Controller
     public function authorize(Task $task, Professional $professional)
     {
         abort_if(
-            $task->company_id !== auth()->user()->company->id,
+            $task->company_id !== Auth::user()->company->id,
             403
         );
 

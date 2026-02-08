@@ -10,7 +10,7 @@ class BellNotification extends Component
 
     public function __construct()
     {
-        $this->hasUnread = auth()->check()
+        $this->hasUnread = Auth::check()
             && auth()->user()->unreadNotifications()->exists();
     }
 

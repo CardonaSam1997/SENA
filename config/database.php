@@ -41,7 +41,9 @@ return [
             'journal_mode' => null,
             'synchronous' => null,
         ],
-
+'notifications' => [
+    'use_uuid' => true,
+],
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DB_URL'),

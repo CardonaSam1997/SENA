@@ -70,9 +70,14 @@ Route::middleware(['auth', 'role:admin'])->prefix('/admin')->name('admin.')->gro
 Route::middleware(['auth', 'role:professional'])->prefix('/professional')->name('professional.')->group(function () {
     //Route::view('/notification', 'Main.ViewNotification')->name('notification');    
     Route::get('/tasks', [TaskController::class, 'indexProfessional'])->name('tasks.index');
-    Route::post('/tasks/{task}/apply', [ApplyTaskController::class, 'store'])
-            ->name('tasks.apply');
+    Route::post('/tasks/{task}/apply', [ApplyTaskController::class, 'store'])->name('tasks.apply');
+    
 });
+
+
+
+
+
 
 
 
