@@ -10,10 +10,10 @@
         <div class="col-md-6">
             <div class="card p-4">
                 @if (session('status'))
-    <div class="alert alert-success mt-3">
-        {{ session('status') }}
-    </div>
-@endif
+                    <div class="alert alert-success mt-3">
+                        {{ session('status') }}
+                    </div>
+                @endif
                 <h3 class="text-center mb-4">Recuperar Contraseña</h3>
                 <form method="POST" action="{{ route('password.email') }}">
                     @csrf

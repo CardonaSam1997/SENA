@@ -62,7 +62,19 @@
                         Restablecer contraseña
                     </button>
                 </form>
-
+                
+                @if (session('status'))
+                    <div class="alert alert-success mt-3">
+                        {{ session('status') }}
+                    </div>
+                    @if (session('redirect_to_login'))
+                        <script>
+                            setTimeout(function() {
+                                window.location.href = "{{ route('login') }}";
+                            }, 2000);
+                        </script>
+                    @endif
+                @endif
             </div>
         </div>
     </div>

@@ -66,7 +66,4 @@ class RegisterCompanyTest extends DuskTestCase
 
         });
     }
-
-
-
 }

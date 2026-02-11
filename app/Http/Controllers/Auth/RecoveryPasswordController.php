@@ -34,10 +34,14 @@ class RecoveryPasswordController extends Controller
             }
         );
 
-        return $status === Password::PASSWORD_RESET
-            ? redirect()->route('login')->with('status', 'Contraseña actualizada')
-            : back()->withErrors(['email' => __($status)]);
+        if ($status === Password::PASSWORD_RESET) {
+            // Mostrar mensaje en la misma vista
+            return back()->with('status', 'La contraseña ha sido actualizada')
+                        ->with('redirect_to_login', true);
+        }
+        return back()->withErrors(['email' => __($status)]);
     }
+
 
 
     public function showForgotForm()
