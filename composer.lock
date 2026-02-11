@@ -7085,16 +7085,16 @@
         },
         {
             "name": "laravel/dusk",
-            "version": "v8.3.5",
+            "version": "v8.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/dusk.git",
-                "reference": "9dc7387a6af0f273f028697d40b9e2b0c167f777"
+                "reference": "5c3beee54f91f575f50cadcd7e5d44c80cc9a9aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/dusk/zipball/9dc7387a6af0f273f028697d40b9e2b0c167f777",
-                "reference": "9dc7387a6af0f273f028697d40b9e2b0c167f777",
+                "url": "https://api.github.com/repos/laravel/dusk/zipball/5c3beee54f91f575f50cadcd7e5d44c80cc9a9aa",
+                "reference": "5c3beee54f91f575f50cadcd7e5d44c80cc9a9aa",
                 "shasum": ""
             },
             "require": {
@@ -7153,9 +7153,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/dusk/issues",
-                "source": "https://github.com/laravel/dusk/tree/v8.3.5"
+                "source": "https://github.com/laravel/dusk/tree/v8.3.6"
             },
-            "time": "2026-02-03T06:55:17+00:00"
+            "time": "2026-02-10T18:14:59+00:00"
         },
         {
             "name": "laravel/pail",

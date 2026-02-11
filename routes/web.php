@@ -89,6 +89,9 @@ Route::view('/registro-profesional', 'Home.FormProfessional')->name('formPro');
 Route::view('/registro-empresa', 'Home.FormBussines')->name('formBuss');
 //Route::view('/notifications', 'Main.ViewNotification')->name('view.notifications');
 
+
+
+
 //EMPRESA
 Route::view('/detalles-trabajo', 'empresa.detallesTarea')->name('bussines.detalles');
 Route::view('/calificar', 'empresa.calificacion')->name('bussines.calificacion');
@@ -105,6 +108,9 @@ Route::get('/profesionales/{id}', function ($id) {
     $yaCalificado = $profesional->calificacion !== null;
     return view('empresa.PerfilProfesional', compact('profesional', 'yaCalificado'));
 })->name('bussines.profesional.show');
+
+
+
 ##PROFESIONAL##
 Route::view('/professional/buscarTarea', 'professionals.SearchTask')->name('professional.search');
 Route::view('/professional/configuracion', 'professionals.PendingTasks')->name('professional.pendingTasks');

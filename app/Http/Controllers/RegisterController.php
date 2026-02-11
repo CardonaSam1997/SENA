@@ -45,7 +45,7 @@ class RegisterController extends Controller
    
     public function storeProfessional(Request $request, User $user){                
         $request->validate([
-            'document' => 'required|string|max:20|unique:professionals,document',
+            'document' => 'string|max:20|unique:professionals,document',
             'name' => 'required|string|max:100',
             'last_name' => 'required|string|max:100',
             'birth_date' => 'nullable|date',

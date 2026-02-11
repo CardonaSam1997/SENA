@@ -32,14 +32,7 @@
                         </div>
                     </div>
 
-                    @if(!empty($professional->phone))
-                    <div class="row mb-3">
-                        <div class="col-md-4 fw-bold">Teléfono:</div>
-                        <div class="col-md-8">
-                            {{ $professional->phone }}
-                        </div>
-                    </div>
-                    @endif
+                  
 
                     @if(!empty($professional->description))
                     <div class="row mb-3">
