@@ -25,7 +25,7 @@ class RegisterProfessionalTest extends DuskTestCase
             $browser->loginAs($user)
                 // Paso 1: selección de rol
                 ->visit(route('register.role', ['user' => $user->id]))
-                ->click('.role-card:first-child') // el primer card es Profesional
+                ->click('.role-card:first-child')
                 ->assertPathIs('/register/professional/'.$user->id)
 
                 // Paso 2: llenar formulario de profesional
@@ -111,5 +111,25 @@ class RegisterProfessionalTest extends DuskTestCase
         });
     }
 
-   
+   public function test_birth_date_is_required() {
+        $user = User::factory()->create(['role' => 'pending', 'completed' => false]); 
+        $this->browse(function (Browser $browser) use ($user) { 
+            $browser->loginAs($user) 
+            ->visit(route('register.professional.form', ['user' => $user->id])) 
+            ->type('document', '123456789')
+            ->type('name', 'Juan') 
+            ->type('last_name', 'Pérez')
+            ->type('address', 'Calle 123') 
+            ->type('birth_date', 'invalid-date')
+            ->type('age', '33') 
+            ->type('experience', '5') 
+            ->type('academic_education', 'Ingeniería de Sistemas') 
+            ->select('gender', 'M') 
+            ->select('service_type', 'software') 
+            ->type('description', 'Soy desarrollador con experiencia en Laravel y PHP') 
+            ->attach('curriculum', base_path('tests/Browser/files/dummy.pdf'))             
+            ->press('Registrarme')            
+            ->assertSee('La fecha de nacimiento debe ser una fecha válida'); 
+        });
+    }
 }

@@ -31,7 +31,7 @@
     <div class="row justify-content-center g-4">
       
         <div class="col-md-4">
-            <div class="role-card" onclick="selectRole('professional')">
+            <div class="role-card" id="professional-card" onclick="selectRole('professional')">
                 <i class="bi bi-person-workspace role-icon"></i>
                 <h5 class="fw-bold">Profesionales</h5>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -39,7 +39,7 @@
         </div>
         
         <div class="col-md-4">
-            <div class="role-card" onclick="selectRole('bussines')">
+            <div class="role-card" id="company-card" onclick="selectRole('bussines')">
                 <i class="bi bi-building role-icon"></i>
                 <h5 class="fw-bold">Empresas</h5>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>

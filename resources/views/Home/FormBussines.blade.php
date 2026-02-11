@@ -22,22 +22,22 @@
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label for="nit" class="form-label">NIT</label>
-                <input type="text" class="form-control" id="nit" name="nit" required>
+                <input type="text" class="form-control" id="nit" name="nit" >
             </div>
             <div class="col-md-6 mb-3">
                 <label for="name" class="form-label">Nombre Empresa</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <input type="text" class="form-control" id="name" name="name" >
             </div>
         </div>
         
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label for="address" class="form-label">Dirección</label>
-                <input type="text" class="form-control" id="address" name="address" required>
+                <input type="text" class="form-control" id="address" name="address" >
             </div>
             <div class="col-md-6 mb-3">
                 <label for="service_type" class="form-label">Tipo de Servicio</label>
-                <select class="form-select" id="service_type" name="service_type" required>
+                <select class="form-select" id="service_type" name="service_type" >
                     <option value="">Seleccione un tipo de servicio</option>
                     <option value="tecnologia">Tecnología</option>
                     <option value="construccion">Construcción</option>
@@ -51,7 +51,7 @@
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label for="web" class="form-label">Página Web</label>
-                <input type="url" class="form-control" id="web" name="web" placeholder="https://" required>
+                <input type="url" class="form-control" id="web" name="web" placeholder="https://" >
             </div>
             <div class="col-md-6 mb-3">
             </div>
