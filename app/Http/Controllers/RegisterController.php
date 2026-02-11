@@ -45,7 +45,7 @@ class RegisterController extends Controller
    
     public function storeProfessional(Request $request, User $user){                
         $request->validate([
-            'document' => 'string|max:20|unique:professionals,document',
+            'document' => 'required|string|max:20|unique:professionals,document',
             'name' => 'required|string|max:100',
             'last_name' => 'required|string|max:100',
             'birth_date' => 'nullable|date',
@@ -100,8 +100,8 @@ class RegisterController extends Controller
         Auth::login($user);
 
         return redirect()
-    ->route('notifications.index')
-    ->with('welcome_professional', true);
+            ->route('notifications.index')
+            ->with('welcome_professional', true);
     }
         
     public function storeCompany(Request $request, User $user)

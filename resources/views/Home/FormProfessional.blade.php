@@ -46,7 +46,7 @@
                     name="name"
                     value="{{ old('name') }}"
                     placeholder="Ingrese su nombre"
-                    required>
+                    >
                 @error('name')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -60,7 +60,7 @@
                     name="last_name"
                     value="{{ old('last_name') }}"
                     placeholder="Ingrese su apellido"
-                    required>
+                    >
                 @error('last_name')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -82,7 +82,7 @@
                 <label for="direccion" class="form-label">Dirección</label>
                 <input type="text" class="form-control @error('address') is-invalid @enderror" 
                        id="direccion" name="address" value="{{ old('address') }}"
-                       placeholder="Ej: CL 123 #45-67" required>
+                       placeholder="Ej: CL 123 #45-67" >
                 @error('address')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -98,14 +98,14 @@
                     class="form-control @error('academic_education') is-invalid @enderror"
                     value="{{ old('academic_education') }}"
                     placeholder="Ej: Ingeniero de Software, Técnico en Sistemas"
-                    required>
+                    >
                 @error('academic_education')<div class="invalid-feedback">{{ $message }}</div>@enderror
             </div>
 
             <div class="col-md-6 mb-3">
                 <label for="especializacion" class="form-label">Especialización</label>
                 <select class="form-select @error('service_type') is-invalid @enderror" 
-                        id="especializacion" name="service_type" required>
+                        id="especializacion" name="service_type" >
                     <option value="">Seleccione su especialización</option>
                     <option value="software" {{ old('service_type') == 'software' ? 'selected' : '' }}>Desarrollo de Software</option>
                     <option value="network" {{ old('service_type') == 'network' ? 'selected' : '' }}>Redes y Telecomunicaciones</option>
@@ -142,7 +142,7 @@
                 <label for="experiencia" class="form-label">Años de experiencia</label>
                 <input type="number" class="form-control @error('experience') is-invalid @enderror" 
                     id="experiencia" name="experience" value="{{ old('experience') }}" min="0"
-                    placeholder="Ingrese años de experiencia" required>
+                    placeholder="Ingrese años de experiencia" >
                 @error('experience')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -153,7 +153,7 @@
             <div class="col-md-6 mb-3">
                 <label for="descripcion" class="form-label">Descripción</label>
                 <textarea class="form-control @error('description') is-invalid @enderror" 
-                          id="descripcion" name="description" rows="3" placeholder="Cuéntanos sobre tu experiencia..." required>{{ old('description') }}</textarea>
+                          id="descripcion" name="description" rows="3" placeholder="Cuéntanos sobre tu experiencia..." >{{ old('description') }}</textarea>
                 @error('description')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
