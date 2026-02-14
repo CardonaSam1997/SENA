@@ -25,6 +25,9 @@ class ApplyTaskController extends Controller
         $application->update([
             'authorization' => true,
         ]);
+        $task->update([
+        'state' => 'asignada',
+        ]);
 
         return back()->with('authorized', true);
     }
@@ -47,7 +50,7 @@ class ApplyTaskController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-     public function store(Task $task)
+    public function store(Task $task)
     {
         $professionalId = Auth::user()->professional->id;
 

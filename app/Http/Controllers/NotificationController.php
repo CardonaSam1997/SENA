@@ -7,10 +7,25 @@ use Illuminate\Notifications\DatabaseNotification;
 use App\Models\Task;
 use App\Models\ApplyTask;
 use App\Models\Professional;
+use Carbon\Carbon;
+
 
 class NotificationController extends Controller{
-  
-public function index()
+    
+    public function read()
+    {
+        $user = auth()->user();
+
+        $notifications = $user->notifications()
+            ->whereNotNull('read_at')
+            ->where('read_at', '>=', Carbon::now()->subWeek())
+            ->latest()
+            ->get();
+
+        return view('notifications.notification-read', compact('notifications'));
+    }
+
+    public function index()
     {
         $notifications = auth()->user()->notifications;
         return view('notifications.index', compact('notifications'));

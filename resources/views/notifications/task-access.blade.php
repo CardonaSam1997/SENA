@@ -49,8 +49,7 @@
                     {{-- Autorizar --}}
                     @if(!$app->authorization)
                         <form method="POST"
-                                    action="{{ route('company.apply-tasks.authorize', [$task, $app->professional]) }}">
-
+                                action="{{ route('company.apply-tasks.authorize', [$task, $app->professional]) }}">
                             @csrf
                             <button class="btn btn-sm btn-success">
                                 Autorizar

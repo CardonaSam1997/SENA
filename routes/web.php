@@ -42,6 +42,7 @@ Route::prefix('register')->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::post('/user/change-password', [UserController::class, 'changePassword'])->name('user.change-password');
     Route::get('/notificaciones', [NotificationController::class, 'index'])->name('notifications.index');
+    Route::get('/notifications/read', [NotificationController::class, 'read'])->name('notifications.read');
     Route::get('/notifications/{notification}', [NotificationController::class, 'show'])->name('notifications.show');
 });
 
@@ -71,7 +72,7 @@ Route::middleware(['auth', 'role:professional'])->prefix('/professional')->name(
     //Route::view('/notification', 'Main.ViewNotification')->name('notification');    
     Route::get('/tasks', [TaskController::class, 'indexProfessional'])->name('tasks.index');
     Route::post('/tasks/{task}/apply', [ApplyTaskController::class, 'store'])->name('tasks.apply');
-    
+
 });
 
 
