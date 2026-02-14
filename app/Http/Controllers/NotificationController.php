@@ -9,20 +9,36 @@ use App\Models\ApplyTask;
 use App\Models\Professional;
 use Carbon\Carbon;
 
-
 class NotificationController extends Controller{
     
+
     public function read()
     {
-        $user = auth()->user();
-
-        $notifications = $user->notifications()
+        $notifications = auth()->user()
+            ->notifications()
             ->whereNotNull('read_at')
-            ->where('read_at', '>=', Carbon::now()->subWeek())
             ->latest()
             ->get();
 
-        return view('notifications.notification-read', compact('notifications'));
+        $active = collect();
+        $deleted = collect();
+
+        foreach ($notifications as $notification) {
+
+            $taskId = $notification->data['task_id'] ?? null;
+
+            $exists = $taskId
+                ? Task::where('id', $taskId)->exists()
+                : false;
+
+            if ($exists) {
+                $active->push($notification);
+            } else {
+                $deleted->push($notification);
+            }
+        }
+
+        return view('notifications.notification-read', compact('active', 'deleted'));
     }
 
     public function index()

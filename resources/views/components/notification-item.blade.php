@@ -1,4 +1,4 @@
-@props(['notification'])
+@props(['notification', 'clickable' => true])
 
 @php
     $type = $notification->data['type'];
@@ -13,9 +13,13 @@
     };
 @endphp
 
-<a href="{{ route('notifications.show', $notification->id) }}"
-   class="task-card text-decoration-none text-dark">
 
+@if($clickable)
+    <a href="{{ route('notifications.show', $notification->id) }}"
+       class="task-card text-decoration-none text-dark">
+@else
+     <div class="task-card bg-light border border-secondary-subtle text-muted" style="cursor: not-allowed;">
+@endif
     <div class="task-img {{ $config['bg'] }}">
         <i class="fas {{ $config['icon'] }}"></i>
     </div>
