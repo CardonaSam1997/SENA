@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Notifications\DatabaseNotification;
 use App\Models\Task;
 use App\Models\ApplyTask;
-use App\Models\Professional;
-use Carbon\Carbon;
+
 
 class NotificationController extends Controller{
     
@@ -58,27 +56,20 @@ class NotificationController extends Controller{
         }
 
         return match ($notification->data['type']) {
-
             'task_access_request' =>
                 $this->taskAccessRequest($notification),
-
             'task_suggestion' =>
                 $this->taskSuggestions($notification),
-
             'task_due_soon' =>
                 $this->taskDueSoon($notification),
-
             'task_completed' =>
                 $this->taskCompleted($notification),
-
             default => abort(404)
         };
     }
 
-    /* =======================
-        TIPOS DE NOTIFICACIÓN
-       ======================= */
 
+    //TIPOS DE NOTIFIACION
     private function taskAccessRequest(DatabaseNotification $notification)
     {
         $task = Task::findOrFail($notification->data['task_id']);
@@ -87,7 +78,7 @@ class NotificationController extends Controller{
             ->where('task_id', $task->id)
             ->get();
 
-        return view('notifications.task-access', compact(
+        return view('notifications.types.task-access', compact(
             'notification',
             'task',
             'applications'
@@ -103,7 +94,7 @@ class NotificationController extends Controller{
             ->whereNotNull('suggestion')
             ->get();
 
-        return view('notifications.task-suggestions', compact(
+        return view('notifications.types.task-suggestions', compact(
             'notification',
             'task',
             'applications'
@@ -114,7 +105,7 @@ class NotificationController extends Controller{
     {
         $task = Task::findOrFail($notification->data['task_id']);
 
-        return view('notifications.task-due-soon', compact(
+        return view('notifications.types.task-due-soon', compact(
             'notification',
             'task'
         ));
@@ -131,7 +122,7 @@ class NotificationController extends Controller{
 
         $professional = $applyTask->professional;
 
-        return view('notifications.task-completed', compact(
+        return view('notifications.types.task-completed', compact(
             'notification',
             'task',
             'professional'
