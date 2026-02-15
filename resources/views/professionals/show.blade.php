@@ -77,7 +77,7 @@
                 <h5 class="mb-3">Actualizar información</h5>
 
                 <form method="POST"
-                      action="{{ route('') }}"
+                      action="{{ route('professional.profile.update') }}"
                       enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -163,3 +163,17 @@
     </div>
 </div>
 @endsection
+
+@if(session('success'))
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    Swal.fire({
+        icon: 'success',
+        title: 'Éxito',
+        text: "{{ session('success') }}",
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Aceptar'
+    });
+});
+</script>
+@endif

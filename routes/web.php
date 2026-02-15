@@ -68,12 +68,12 @@ Route::middleware(['auth', 'role:admin'])->prefix('/admin')->name('admin.')->gro
 });
 
 //PROFESSIONAL
-Route::middleware(['auth', 'role:professional'])->prefix('/professional')->name('professional.')->group(function () {
-    //Route::view('/notification', 'Main.ViewNotification')->name('notification');    
+Route::middleware(['auth', 'role:professional'])->prefix('/professional')->name('professional.')->group(function () {    
     Route::get('/tasks', [TaskController::class, 'indexProfessional'])->name('tasks.index');
     Route::post('/tasks/{task}/apply', [ApplyTaskController::class, 'store'])->name('tasks.apply');
     Route::post('/tasks/{task}/comment', [ApplyTaskController::class, 'comment'])->name('tasks.comment');
     Route::get('/profile', [ProfessionalController::class, 'profile'])->name('profile.show');
+    Route::put('/profile/update',[ProfessionalController::class, 'update'])->name('profile.update');
 });
 
 
