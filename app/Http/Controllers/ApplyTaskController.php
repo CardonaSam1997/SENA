@@ -31,28 +31,33 @@ class ApplyTaskController extends Controller
 
         return back()->with('authorized', true);
     }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+    public function alreadyAppli($idTask){
+        $professionalId = Auth::user()->professional->id;
 
+        $alreadyApplied = ApplyTask::where('professional_id', $professionalId)
+            ->where('task_id', $idTask)
+            ->exists();
+        return $alreadyApplied;
+    }
+   
     /**
      * Store a newly created resource in storage.
      */
     public function store(Task $task)
     {
         $professionalId = Auth::user()->professional->id;
+    
+        $alreadyApplied = ApplyTask::where('professional_id', $professionalId)
+            ->where('task_id', $task->id)
+            ->exists();
+
+          if ($alreadyApplied) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Ya aplicaste a esta tarea.'
+        ]);
+    }
 
         ApplyTask::firstOrCreate(
             [
@@ -65,38 +70,12 @@ class ApplyTaskController extends Controller
             ]
         );
 
-        return back()->with('success', 'Aplicación enviada correctamente');
+        
+    return response()->json([
+        'success' => true,
+        'message' => 'Aplicación enviada correctamente.'
+    ]);
+    
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(ApplyTask $apply_task)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(ApplyTask $apply_task)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, ApplyTask $apply_task)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(ApplyTask $apply_task)
-    {
-        //
-    }
+   
 }

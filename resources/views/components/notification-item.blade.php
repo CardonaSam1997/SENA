@@ -13,7 +13,9 @@
     };
 @endphp
 
-
+@if(!$clickable)
+    <span class="badge bg-secondary ms-2">Eliminada</span>
+@endif
 @if($clickable)
     <a href="{{ route('notifications.show', $notification->id) }}"
        class="task-card text-decoration-none text-dark">
