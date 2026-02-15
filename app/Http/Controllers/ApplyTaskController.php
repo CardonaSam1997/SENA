@@ -46,19 +46,17 @@ class ApplyTaskController extends Controller
      */
     public function store(Task $task)
     {
-        $professionalId = Auth::user()->professional->id;
-    
+        $professionalId = Auth::user()->professional->id;    
         $alreadyApplied = ApplyTask::where('professional_id', $professionalId)
             ->where('task_id', $task->id)
             ->exists();
 
-          if ($alreadyApplied) {
-        return response()->json([
-            'success' => false,
-            'message' => 'Ya aplicaste a esta tarea.'
-        ]);
-    }
-
+        if ($alreadyApplied) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Ya aplicaste a esta tarea.'
+            ]);
+        }
         ApplyTask::firstOrCreate(
             [
                 'professional_id' => $professionalId,
@@ -70,12 +68,41 @@ class ApplyTaskController extends Controller
             ]
         );
 
-        
-    return response()->json([
-        'success' => true,
-        'message' => 'Aplicación enviada correctamente.'
-    ]);
+        return response()->json([
+            'success' => true,
+            'message' => 'Aplicación enviada correctamente.'
+        ]);
     
     }
+
+
+    public function comment(Request $request, Task $task)
+{
+    $request->validate([
+        'suggestion' => 'required|string'
+    ]);
+
+    $professionalId = Auth::user()->professional->id;
+
+    $applyTask = ApplyTask::firstOrCreate(
+        [
+            'professional_id' => $professionalId,
+            'task_id' => $task->id,
+        ],
+        [
+            'authorization' => false,
+            'score' => 0,
+        ]
+    );
+
+    $applyTask->update([
+        'suggestion' => $request->suggestion
+    ]);
+
+    return response()->json([
+        'success' => true,
+        'message' => 'Comentario enviado correctamente.'
+    ]);
+}
    
 }

@@ -11,25 +11,29 @@
             font-weight: bold;
             font-size: 1.2rem;
             margin-bottom: 2rem;
-        }
-        .card-custom {
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-        }
-        .section-title {
-            background-color: #d9f2d9;
-            text-align: center;
-            padding: 0.5rem;
-            font-weight: bold;
-            border-radius: 20px;
-            margin-bottom: 1rem;
-        }
+        }                
         .tareas-disponibles{
             overflow-y: auto;
             height: 80vh;
         }
-
-        .card-custom div{
-            height: 100px;
+        .section-title {            
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
         }
+        .filter-box {
+            background: #ffffff;
+            padding-left: 20px;
+            padding-top: 10px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            margin-top: 35px;
+        }
+        @media (max-width: 768px) {
+            .filter-box {
+            margin-bottom: 25px;
+            }
+        }
+
+      

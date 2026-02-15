@@ -72,8 +72,7 @@ Route::middleware(['auth', 'role:professional'])->prefix('/professional')->name(
     //Route::view('/notification', 'Main.ViewNotification')->name('notification');    
     Route::get('/tasks', [TaskController::class, 'indexProfessional'])->name('tasks.index');
     Route::post('/tasks/{task}/apply', [ApplyTaskController::class, 'store'])->name('tasks.apply');
-    Route::post('/tasks/{task}/comment', [ApplyTaskController::class, ''])->name('tasks.comment');
-
+    Route::post('/tasks/{task}/comment', [ApplyTaskController::class, 'comment'])->name('tasks.comment');
 });
 
 

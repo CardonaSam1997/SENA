@@ -34,6 +34,7 @@
             @endforelse
         </div>
 
+    <div class="d-flex gap-2 mb-3">
         @if(isset($task))
           <form id="applyForm{{ $task->id }}">
               @csrf
@@ -41,8 +42,28 @@
                   Aplicar
               </button>
           </form>
-          <div id="responseMessage{{ $task->id }}"></div>
-        @endif
+          @endif     
+          
+          <button class="btn btn-secondary btn-sm mb-3"
+          onclick="toggleComment({{ $task->id }})">
+          Comentar
+        </button>
+    </div>
+    <div id="responseMessage{{ $task->id }}"></div>
+
+<div id="commentSection{{ $task->id }}" class="d-none">
+    <textarea class="form-control mb-2"
+              id="suggestion{{ $task->id }}"
+              rows="4"
+              placeholder="Escribe tu comentario..."></textarea>
+
+    <button class="btn btn-success btn-sm"
+            onclick="sendComment({{ $task->id }})">
+        Enviar comentario
+    </button>
+
+    <div id="commentResponse{{ $task->id }}"></div>
+</div>
 
 
       </div>
@@ -77,5 +98,47 @@ document.getElementById('applyForm{{ $task->id }}')
     })
     .catch(error => console.error(error));
 });
+
+
+function toggleComment(id) {
+    document.getElementById('commentSection'+id)
+        .classList.toggle('d-none');
+}
+
+function sendComment(id) {
+
+    let suggestion = document.getElementById('suggestion'+id).value;
+
+    if (!suggestion.trim()) {
+        alert('El comentario es obligatorio');
+        return;
+    }
+
+    fetch("/professional/tasks/"+id+"/comment", {
+        method: "POST",
+        headers: {
+            "X-CSRF-TOKEN": "{{ csrf_token() }}",
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+            suggestion: suggestion
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+
+        let messageDiv = document.getElementById('commentResponse'+id);
+
+        if (data.success) {
+            messageDiv.innerHTML =
+                `<div class="alert alert-success">${data.message}</div>`;
+        } else {
+            messageDiv.innerHTML =
+                `<div class="alert alert-danger">${data.message}</div>`;
+        }
+    })
+    .catch(error => console.error(error));
+}
 </script>
 </div>
