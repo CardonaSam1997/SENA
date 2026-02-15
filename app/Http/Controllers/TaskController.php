@@ -10,11 +10,12 @@ use Illuminate\Support\Facades\Storage;
 
 class TaskController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
 
-     public function indexProfessional()
+    /**
+     * Muestra todas las publicaciones que tienen el estado pendiente
+     * y que tienen una fecha superior al dia actual
+     */
+    public function indexProfessional()
     {
         $tasks = Task::where('enable', true)
             ->where('state', 'pendiente')
@@ -26,7 +27,7 @@ class TaskController extends Controller
     }
 
 
-   public function index()
+    public function index()
     {
         $company = Auth::user()->company;
         $tasks = Task::where('company_id', $company->id)
@@ -46,7 +47,7 @@ class TaskController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Permite la creacion de una tarea (publicar)
      */
     public function store(Request $request)
     {        
@@ -108,15 +109,6 @@ class TaskController extends Controller
 
             throw $e;
         }
-    }
-
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Task $task)
-    {
-        //
     }
 
     /**
@@ -187,6 +179,17 @@ class TaskController extends Controller
             ->back()
             ->with('success', 'Tarea eliminada correctamente');
     }
+    
 
+    public function tareasAutorizadas()
+    {
+        $professional = Auth::user()->professional;
 
+        $tasks = Task::whereHas('professionals', function ($query) use ($professional) {
+            $query->where('professional_id', $professional->id)
+                ->where('authorization', true);
+        })->get();
+
+        return view('professionals.tasks.tasksAutorize', compact('tasks'));
+    }
 }

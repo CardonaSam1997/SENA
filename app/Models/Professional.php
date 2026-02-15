@@ -31,4 +31,15 @@ class Professional extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function tasks()
+    {
+        return $this->belongsToMany(
+            Task::class,
+            'apply_tasks',
+            'professional_id',
+            'task_id'
+        )->withPivot('authorization', 'suggestion', 'score')
+        ->withTimestamps();
+    }
+
 }

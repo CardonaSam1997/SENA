@@ -28,4 +28,6 @@ class ApplyTask extends Model
     {
         return $this->belongsTo(Professional::class);
     }
+
+    
 }

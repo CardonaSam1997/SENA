@@ -33,7 +33,18 @@ class Task extends Model
     }
 
     public function applyTasks()
+    {
+        return $this->hasMany(ApplyTask::class);    
+    }
+
+    public function professionals()
 {
-    return $this->hasMany(ApplyTask::class);
+    return $this->belongsToMany(
+        Professional::class,
+        'apply_tasks',
+        'task_id',
+        'professional_id'
+    )->withPivot('authorization', 'suggestion', 'score')
+     ->withTimestamps();
 }
 }

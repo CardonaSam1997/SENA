@@ -31,7 +31,7 @@
           <a href="{{ route('professional.tasks.index') }}" class="nav-link text-white py-2">
             <i class="fas fa-search me-2"></i> Buscar Tarea
           </a>
-          <a href="{{ route('professional.pendingTasks') }}" class="nav-link text-white py-2">
+          <a href="{{ route('professional.tasks.autorize') }}" class="nav-link text-white py-2">
             <i class="fas fa-tasks me-2"></i> Listar trabajos
           </a>
           <a href="{{ route('professional.profile.show') }}" class="nav-link text-white py-2">
