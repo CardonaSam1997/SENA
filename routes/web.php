@@ -73,6 +73,7 @@ Route::middleware(['auth', 'role:professional'])->prefix('/professional')->name(
     Route::get('/tasks', [TaskController::class, 'indexProfessional'])->name('tasks.index');
     Route::post('/tasks/{task}/apply', [ApplyTaskController::class, 'store'])->name('tasks.apply');
     Route::post('/tasks/{task}/comment', [ApplyTaskController::class, 'comment'])->name('tasks.comment');
+    Route::get('/profile', [ProfessionalController::class, 'profile'])->name('profile.show');
 });
 
 
@@ -90,17 +91,16 @@ Route::middleware(['auth', 'role:professional'])->prefix('/professional')->name(
 
 #Route::get('/user', fn () => view('user.dashboard'))->name('user.dashboard');
 //Formularios de registro
-Route::view('/rol', 'Home.FormRol')->name('rol');
-Route::view('/registro-profesional', 'Home.FormProfessional')->name('formPro');
-Route::view('/registro-empresa', 'Home.FormBussines')->name('formBuss');
+//Route::view('/rol', 'Home.FormRol')->name('rol');
+//Route::view('/registro-profesional', 'Home.FormProfessional')->name('formPro');
+//Route::view('/registro-empresa', 'Home.FormBussines')->name('formBuss');
 //Route::view('/notifications', 'Main.ViewNotification')->name('view.notifications');
 
 //EMPRESA
-Route::view('/detalles-trabajo', 'empresa.detallesTarea')->name('bussines.detalles');
+//Route::view('/detalles-trabajo', 'empresa.detallesTarea')->name('bussines.detalles');
 Route::view('/calificar', 'empresa.calificacion')->name('bussines.calificacion');
-Route::get('/profesionales', function () {
-    return view('Profesional.ViewDetails');})->name('profesionales.index');
-Route::get('/profesionales/{id}', function ($id) {    
+//Route::get('/profesionales', function () {return view('Profesional.ViewDetails');})->name('profesionales.index');
+/*Route::get('/profesionales/{id}', function ($id) {    
     $profesional = (object)[
         'id' => $id,
         'nombre' => 'Juan Pérez',
@@ -110,9 +110,9 @@ Route::get('/profesionales/{id}', function ($id) {
     ];
     $yaCalificado = $profesional->calificacion !== null;
     return view('empresa.PerfilProfesional', compact('profesional', 'yaCalificado'));
-})->name('bussines.profesional.show');
+})->name('bussines.profesional.show');*/
 ##PROFESIONAL##
-Route::view('/professional/buscarTarea', 'professionals.SearchTask')->name('professional.search');
+//Route::view('/professional/buscarTarea', 'professionals.SearchTask')->name('professional.search');
 Route::view('/professional/configuracion', 'professionals.PendingTasks')->name('professional.pendingTasks');
 Route::view('/professional/PendingTask', 'professionals.ViewDetails')->name('professional.configuracion');
 

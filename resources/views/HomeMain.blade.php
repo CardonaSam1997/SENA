@@ -34,7 +34,7 @@
           <a href="{{ route('professional.pendingTasks') }}" class="nav-link text-white py-2">
             <i class="fas fa-tasks me-2"></i> Listar trabajos
           </a>
-          <a href="{{ route('professional.configuracion') }}" class="nav-link text-white py-2">
+          <a href="{{ route('professional.profile.show') }}" class="nav-link text-white py-2">
             <i class="fas fa-cog me-2"></i> Configuración
           </a>
         @elseif ($role === 'company')
