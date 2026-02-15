@@ -75,6 +75,7 @@ Route::middleware(['auth', 'role:professional'])->prefix('/professional')->name(
     Route::get('/profile', [ProfessionalController::class, 'profile'])->name('profile.show');
     Route::put('/profile/update',[ProfessionalController::class, 'update'])->name('profile.update');
     Route::get('/mis-tareas', [TaskController::class, 'tareasAutorizadas'])->name('tasks.autorize');
+    Route::get('/mis-tareas/{task}', [TaskController::class, 'show'])->name('tasks.show');
 });
 
 

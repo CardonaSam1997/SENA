@@ -192,4 +192,24 @@ class TaskController extends Controller
 
         return view('professionals.tasks.tasksAutorize', compact('tasks'));
     }
+
+
+public function show(Task $task)
+{
+    $professional = Auth::user()->professional;
+
+    $authorized = $task->professionals()
+        ->where('professional_id', $professional->id)
+        ->wherePivot('authorization', true)
+        ->exists();
+
+    if (!$authorized) {
+        abort(403);
+    }
+
+    $task->load('files');
+
+    return view('professionals.tasks.show', compact('task'));
+}
+
 }

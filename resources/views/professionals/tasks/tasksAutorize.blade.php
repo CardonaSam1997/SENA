@@ -33,9 +33,15 @@
                                 {{ $task->state }}
                             </span>
                         </td>
-                        <td>
-                            <a href="#" class="btn btn-warning btn-sm">
-                                <i class="fas fa-pencil-alt"></i>
+                        <td>                            
+                            <a href="{{ route('professional.tasks.show', $task->id) }}"
+                                class="btn btn-info btn-sm"
+                                title="Ver detalles">
+                                <i class="fas fa-eye"></i>
+                            </a>
+
+                            <a href="#" class="btn btn-success btn-sm" title="Entregar">
+                                <i class="fas fa-box"></i>
                             </a>
                         </td>
                     </tr>
@@ -58,23 +64,4 @@
     }
 }
 </style>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css">
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
-
-<script>
-$(document).ready(function() {
-    $('#tablaTareas').DataTable({
-        responsive: true,
-        language: {
-            url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json'
-        }
-    });
-});
-</script>
 @endsection
