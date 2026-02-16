@@ -169,3 +169,6 @@ Importante (no olvidar)
 El scheduler solo funciona si el cron del servidor está activo:
 
 * * * * * php /ruta/a/tu/proyecto/artisan schedule:run
+
+php artisan storage:link
+

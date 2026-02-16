@@ -12,6 +12,7 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\ProfessionalController;
 use App\Http\Controllers\ApplyTaskController;
+use App\Http\Controllers\Web\PaymentController;
 
 
 //PRINCIPAL
@@ -59,6 +60,9 @@ Route::middleware(['auth', 'role:company'])->prefix('/company')->name('company.'
     Route::delete('/tasks/files/{file}',[FileController::class, 'destroy'])->name('tasks.files.destroy');
     Route::post('/tasks/{task}/authorize/{professional}',[ApplyTaskController::class, 'authorize'])->name('apply-tasks.authorize');    
     Route::get('/professionals/{professional}', [ProfessionalController::class, 'show'])->name('professionals.show');
+
+    Route::post('/paypal/create', [PaymentController::class, 'create'])->name('paypal.create');
+    Route::post('/paypal/capture/{orderId}', [PaymentController::class, 'capture'])->name('paypal.capture');;
 });
     
 
