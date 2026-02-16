@@ -22,6 +22,13 @@
             <p><strong>Fecha de vencimiento:</strong>
                 {{ $task->expiration_date->format('d/m/Y') }}
             </p>
+            @if($applyTask->delivery_file)
+    <a href="{{ asset('storage/'.$applyTask->delivery_file) }}" target="_blank">
+        Descargar archivo
+    </a>
+@else
+    <p>No has entregado archivo aún.</p>
+@endif
         </div>
     </div>
 

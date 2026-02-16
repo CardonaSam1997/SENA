@@ -125,7 +125,9 @@ class NotificationController extends Controller{
         return view('notifications.types.task-completed', compact(
             'notification',
             'task',
-            'professional'
+            'professional',
+            'applyTask'
+
         ));
     }
 }
