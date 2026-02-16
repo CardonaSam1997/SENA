@@ -40,9 +40,26 @@
                                 <i class="fas fa-eye"></i>
                             </a>
 
-                            <a href="#" class="btn btn-success btn-sm" title="Entregar">
-                                <i class="fas fa-box"></i>
-                            </a>
+<form action="{{ route('professional.tasks.deliver', $task->id) }}" 
+      method="POST" 
+      enctype="multipart/form-data"
+      class="d-inline">
+
+    @csrf
+
+    <input type="file" 
+           name="delivery_file" 
+           class="d-none file-input"
+           onchange="this.form.submit()"
+           accept="application/pdf">
+
+    <button type="button" 
+            class="btn btn-success btn-sm"
+            onclick="this.closest('form').querySelector('.file-input').click()"
+            title="Entregar">
+        <i class="fas fa-box"></i>
+    </button>
+</form>
                         </td>
                     </tr>
                 @endforeach

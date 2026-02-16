@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ApplyTask extends Model
 {
-    protected $table = 'apply_tasks';
-    
+    protected $table = 'apply_tasks';    
     public $incrementing = false;
     protected $primaryKey = null;
 
@@ -17,6 +16,7 @@ class ApplyTask extends Model
         'authorization',
         'suggestion',
         'score',
+        'delivery_file'
     ];
 
     public function task()

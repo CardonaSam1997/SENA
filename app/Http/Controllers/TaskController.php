@@ -212,4 +212,64 @@ public function show(Task $task)
     return view('professionals.tasks.show', compact('task'));
 }
 
+
+public function deliver(Request $request, Task $task)
+{
+    $request->validate([
+        'delivery_file' => 'required|file|mimes:pdf|max:2048',
+    ]);
+
+    $professional = Auth::user()->professional;
+
+    $storedPath = null;
+
+    try {
+
+        DB::transaction(function () use (
+            $request, 
+            $task, 
+            $professional, 
+            &$storedPath
+        ) {
+
+            // Verificar autorización
+            $apply = $task->professionals()
+                ->where('professional_id', $professional->id)
+                ->wherePivot('authorization', true)
+                ->first();
+
+            if (!$apply) {
+                abort(403);
+            }
+
+            // Guardar archivo
+            $storedPath = $request->file('delivery_file')->store(
+                'deliveries/task_' . $task->id . '/professional_' . $professional->id,
+                'public'
+            );
+
+            // Actualizar pivot
+            $task->professionals()->updateExistingPivot($professional->id, [
+                'delivery_file' => $storedPath,
+                'delivered_at'  => now(),
+            ]);
+
+            // Cambiar estado de la tarea
+            $task->update([
+                'state' => 'finalizada'
+            ]);
+        });
+
+        return back()->with('success', 'Tarea entregada correctamente');
+
+    } catch (\Throwable $e) {
+
+        if ($storedPath) {
+            Storage::disk('public')->delete($storedPath);
+        }
+
+        throw $e;
+    }
+}
+
 }
