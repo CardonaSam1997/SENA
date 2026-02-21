@@ -13,7 +13,12 @@ class ProfessionalController extends Controller
    
     public function show(Professional $professional)
     {
-        return view('professionals.show', compact('professional'));
+        $professional->load('user');
+
+    return view('professionals.show', [
+        'professional' => $professional,
+        'user' => $professional->user
+    ]);
     }
 
     public function profile()

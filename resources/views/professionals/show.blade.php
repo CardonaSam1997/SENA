@@ -152,7 +152,7 @@
                                name="curriculum"
                                accept=".pdf,.doc,.docx">
                     </div>
-
+                
                     <button type="submit" class="btn btn-primary">
                         Guardar cambios
                     </button>

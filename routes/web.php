@@ -68,7 +68,7 @@ Route::middleware(['auth', 'role:company'])->prefix('/company')->name('company.'
 
 //ADMIN
 Route::middleware(['auth', 'role:admin'])->prefix('/admin')->name('admin.')->group(function () {            
-    Route::view('/crear', 'empresa.prueba')->name('main');    
+    Route::view('/usuarios', 'Moderador.GestionUsuarios')->name('main');    
 });
 
 //PROFESSIONAL
